@@ -55,58 +55,623 @@
     "openingHours": "Mo-Sa 08:00-18:00"
   }
   </script>
+
+  <style>
+  /* ============================================================
+     BRUTALIST OVERRIDES — these win over all linked stylesheets
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    background: #F5F0EB;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* --- NAVBAR --- */
+  #navbar {
+    background: #F5F0EB !important;
+    border-bottom: 3px solid #0D0D0D !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 40px !important;
+    height: 64px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999 !important;
+    gap: 0 !important;
+  }
+  .nav-logo { margin-right: auto; }
+  .nav-logo img { height: 40px; object-fit: contain; display: block; }
+  .hn-center-links {
+    display: flex;
+    gap: 32px;
+    margin-right: 32px;
+  }
+  .hn-center-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0D0D0D;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hn-center-links a:hover { color: #00D4FF; }
+  .hn-nav-right { display: flex; align-items: center; gap: 16px; }
+  .hn-sign-in {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0D0D0D;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .hn-sign-in:hover { color: #00D4FF; }
+  .hn-get-started {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFF;
+    background: #0D0D0D;
+    padding: 10px 20px;
+    border: 2px solid #0D0D0D;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0 !important;
+  }
+  .hn-get-started:hover { background: #F5F0EB; color: #0D0D0D; }
+  .nav-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0D0D0D;
+    padding: 4px;
+  }
+
+  /* --- INFO BAR --- */
+  #info-bar {
+    background: #0D0D0D !important;
+    border-bottom: none !important;
+    padding: 9px 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    flex-wrap: wrap !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    color: #888 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+  }
+  #info-bar a {
+    color: #888 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 0 24px !important;
+  }
+  #info-bar a:hover { color: #FFF !important; }
+  #info-bar .info-bar-sep { display: inline !important; opacity: 1 !important; color: #333 !important; padding: 0 !important; }
+
+  /* --- HERO --- */
+  #wb-hero {
+    background: #F5F0EB;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 3px solid #0D0D0D;
+  }
+  #wb-hero-l {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #wb-hero-r {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+  }
+  .wb-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 28px;
+    display: block;
+  }
+  .wb-hero-h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(72px, 9vw, 124px);
+    font-weight: 900;
+    line-height: 0.88;
+    color: #0D0D0D;
+    letter-spacing: -4px;
+    margin: 0 0 32px;
+  }
+  .wb-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #444;
+    max-width: 400px;
+    line-height: 1.65;
+    margin: 0 0 40px;
+  }
+  .wb-cta-btn {
+    display: inline-block;
+    background: #0D0D0D;
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 36px;
+    border: 3px solid #0D0D0D;
+    text-decoration: none;
+    border-radius: 0 !important;
+    align-self: flex-start;
+  }
+  .wb-cta-btn:hover { background: #F5F0EB; color: #0D0D0D; }
+  .wb-cta-btn-light {
+    display: inline-block;
+    background: #F5F0EB;
+    color: #0D0D0D;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 36px;
+    border: 3px solid #0D0D0D;
+    text-decoration: none;
+    border-radius: 0 !important;
+  }
+  .wb-cta-btn-light:hover { background: #0D0D0D; color: #FFF; }
+  .wb-hero-phone {
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+    display: block;
+  }
+  .wb-hero-phone:hover { color: #0D0D0D; }
+
+  /* --- WHAT WE DELIVER --- */
+  #wb-deliver {
+    background: #0D0D0D;
+    padding: 96px 64px;
+    border-bottom: 3px solid #222;
+  }
+  .wb-deliver-inner { max-width: 1200px; margin: 0 auto; }
+  .wb-section-h {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -2px;
+    margin: 0 0 64px;
+  }
+  .wb-section-h--light { color: #FFF; }
+  .wb-section-h--dark { color: #0D0D0D; }
+  .wb-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .wb-card {
+    border: 3px solid #FFF;
+    padding: 40px;
+    background: transparent;
+  }
+  .wb-card + .wb-card { border-left: none; }
+  .wb-card-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFF;
+    margin-bottom: 12px;
+  }
+  .wb-card-price {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: #00D4FF;
+    margin-bottom: 16px;
+  }
+  .wb-card-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #AAA;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .wb-card-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFF;
+    text-decoration: underline;
+  }
+  .wb-card-link:hover { color: #00D4FF; }
+
+  /* --- HOW IT WORKS --- */
+  #wb-how {
+    background: #F5F0EB;
+    padding: 96px 64px;
+    border-bottom: 3px solid #0D0D0D;
+  }
+  .wb-how-inner { max-width: 1200px; margin: 0 auto; }
+  .wb-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .wb-step { padding: 0 48px 0 0; }
+  .wb-step + .wb-step {
+    border-left: 2px solid #0D0D0D;
+    padding: 0 48px 0 48px;
+  }
+  .wb-step:last-child { padding-right: 0; }
+  .wb-step-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 96px;
+    font-weight: 900;
+    color: #00D4FF;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .wb-step-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0D0D0D;
+    margin-bottom: 12px;
+  }
+  .wb-step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  /* --- PRICING --- */
+  #wb-pricing {
+    background: #FFF;
+    padding: 96px 64px;
+    border-bottom: 3px solid #0D0D0D;
+  }
+  .wb-pricing-inner { max-width: 1200px; margin: 0 auto; }
+  .wb-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .wb-price-card {
+    border: 3px solid #0D0D0D;
+    padding: 40px;
+    background: #FFF;
+  }
+  .wb-price-card + .wb-price-card { border-left: none; }
+  .wb-badge {
+    display: inline-block;
+    background: #00D4FF;
+    color: #0D0D0D;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    border-radius: 0 !important;
+  }
+  .wb-price-type {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #0D0D0D;
+    margin-bottom: 4px;
+  }
+  .wb-price-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 24px;
+  }
+  .wb-price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 24px;
+    background: #0D0D0D;
+    outline: 2px solid #0D0D0D;
+  }
+  .wb-price-cell {
+    background: #FFF;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .wb-price-cell-lbl {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .wb-price-cell-val {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0D0D0D;
+  }
+  .wb-order-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #0D0D0D;
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-align: center;
+    border: 3px solid #0D0D0D;
+    border-radius: 0 !important;
+  }
+  .wb-order-btn:hover { background: #FFF; color: #0D0D0D; }
+
+  /* --- TRUST BAR --- */
+  #wb-trust {
+    background: #0D0D0D;
+    padding: 0 40px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 3px solid #222;
+  }
+  .wb-trust-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #FFF;
+    padding: 20px 32px;
+  }
+  .wb-trust-item + .wb-trust-item {
+    border-left: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* --- AREA / REVIEW SECTION --- */
+  #wb-area {
+    background: #F5F0EB;
+    padding: 120px 64px;
+    border-bottom: 3px solid #0D0D0D;
+  }
+  .wb-area-inner { max-width: 1200px; margin: 0 auto; }
+  .wb-area-p {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: #444;
+    line-height: 1.65;
+    max-width: 580px;
+    margin: 0 0 40px;
+  }
+
+  /* --- FOOTER --- */
+  #footer {
+    background: #0D0D0D !important;
+    border-top: 3px solid #333 !important;
+    padding: 64px !important;
+    color: #FFF !important;
+  }
+  .wb-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto 48px;
+  }
+  .wb-footer-brand img {
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .wb-footer-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0 0 16px;
+    max-width: 280px;
+  }
+  .wb-footer-phone {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFF;
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+  .wb-footer-phone:hover { color: #00D4FF; }
+  .wb-footer-loc {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #555;
+  }
+  .wb-footer-col h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFF;
+    margin: 0 0 20px;
+  }
+  .wb-footer-col nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .wb-footer-col nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+  }
+  .wb-footer-col nav a:hover { color: #FFF; }
+  .wb-footer-bottom {
+    border-top: 1px solid #1A1A1A;
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .wb-footer-copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #444;
+    margin: 0;
+  }
+  .wb-footer-socials { display: flex; gap: 20px; }
+  .wb-footer-socials a {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .wb-footer-socials a:hover { color: #FFF; }
+
+  /* --- WATER TYPE GATE --- */
+  #wt-gate { background: #0D0D0D !important; }
+  .wt-gate-opt {
+    border-radius: 0 !important;
+    border: 2px solid #333 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  .wt-gate-opt:hover, .wt-gate-opt:focus {
+    border-color: #FFF !important;
+    background: rgba(255,255,255,0.04) !important;
+  }
+  .wt-gate-opt.wt-gate-selected {
+    border-color: #00D4FF !important;
+    background: rgba(0,212,255,0.06) !important;
+    box-shadow: none !important;
+  }
+
+  /* --- MOBILE --- */
+  @media (max-width: 900px) {
+    #navbar { padding: 0 20px !important; }
+    .hn-center-links { display: none !important; }
+    .hn-nav-right .hn-sign-in { display: none; }
+    .nav-menu-btn { display: block !important; }
+
+    #wb-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    #wb-hero-r { order: 1; padding: 40px 24px; border-bottom: 3px solid #0D0D0D; }
+    #wb-hero-l { order: 2; padding: 40px 24px; border-right: none; }
+    .wb-hero-h1 { letter-spacing: -2px; }
+
+    #wb-deliver { padding: 64px 24px; }
+    .wb-cards { grid-template-columns: 1fr; }
+    .wb-card + .wb-card { border-left: 3px solid #FFF; border-top: none; }
+
+    #wb-how { padding: 64px 24px; }
+    .wb-steps { grid-template-columns: 1fr; }
+    .wb-step { padding: 0 0 32px; }
+    .wb-step + .wb-step { border-left: none; padding: 32px 0 0; border-top: 2px solid #0D0D0D; }
+
+    #wb-pricing { padding: 64px 24px; }
+    .wb-pricing-grid { grid-template-columns: 1fr; }
+    .wb-price-card + .wb-price-card { border-left: 3px solid #0D0D0D; border-top: none; }
+
+    #wb-trust { padding: 0 16px; }
+    .wb-trust-item { padding: 16px; font-size: 10px; letter-spacing: 2px; }
+    .wb-trust-item + .wb-trust-item { border-left: none; border-top: 1px solid rgba(255,255,255,0.15); }
+
+    #wb-area { padding: 64px 24px; }
+
+    #footer { padding: 48px 24px !important; }
+    .wb-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .wb-footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+  </style>
 </head>
 <body>
 
 <!-- ============================================================
-     WATER TYPE STICKY BAR
+     WATER TYPE STICKY BAR (JS compat)
      ============================================================ -->
-<div id="wt-bar" style="display:none;position:sticky;top:64px;z-index:998;background:#0A1628;border-bottom:1px solid #1A2E47;padding:7px 20px;text-align:center;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.3px;color:#A0AEBD;">
-  Water Type: <span id="wt-bar-type" style="color:#fff;font-weight:700;"></span>
-  <span style="margin:0 8px;opacity:.4;">·</span>
-  <button id="wt-bar-change" style="background:none;border:none;color:#fff;font-size:12px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline;padding:0;letter-spacing:.3px;">Change</button>
+<div id="wt-bar" style="display:none;position:sticky;top:64px;z-index:998;background:#0D0D0D;border-bottom:1px solid #1A1A1A;padding:8px 20px;text-align:center;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;">
+  Water Type: <span id="wt-bar-type" style="color:#FFF;font-weight:600;"></span>
+  <span style="margin:0 16px;color:#333;">|</span>
+  <button id="wt-bar-change" style="background:none;border:none;color:#FFF;font-size:11px;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:underline;padding:0;letter-spacing:2px;text-transform:uppercase;">Change</button>
 </div>
 
 <!-- ============================================================
      WATER TYPE MODAL / GATE
      ============================================================ -->
-<div id="wt-gate" style="display:none;position:fixed;inset:0;z-index:99998;background:#050C18;align-items:center;justify-content:center;padding:24px;" role="dialog" aria-modal="true" aria-label="Select your water type">
+<div id="wt-gate" style="display:none;position:fixed;inset:0;z-index:99998;background:#0D0D0D;align-items:center;justify-content:center;padding:24px;" role="dialog" aria-modal="true" aria-label="Select your water type">
   <div style="max-width:420px;width:100%;">
-    <div style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:900;color:#fff;text-align:center;margin-bottom:8px;">What water do you drink?</div>
-    <div style="font-size:13px;color:#A0AEBD;text-align:center;margin-bottom:32px;line-height:1.6;">Choose your preference — we'll show the right products and pricing.</div>
+    <div style="font-family:'Outfit',sans-serif;font-size:36px;font-weight:900;color:#FFF;margin-bottom:8px;letter-spacing:-1px;">What do you drink?</div>
+    <div style="font-size:13px;color:#888;margin-bottom:32px;line-height:1.6;font-family:'Inter',sans-serif;">Choose your water type — we'll show the right pricing.</div>
     <div style="display:flex;flex-direction:column;gap:12px;">
       <button class="wt-gate-opt" data-wt="ro">
         <div style="font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;color:#fff;">RO Water</div>
-        <div style="font-size:12px;color:#A0AEBD;margin-top:4px;">Pure reverse osmosis — clean, crisp, filtered of all impurities</div>
+        <div style="font-size:12px;color:#888;margin-top:4px;font-family:'Inter',sans-serif;">Pure reverse osmosis — clean, crisp, filtered of all impurities</div>
       </button>
       <button class="wt-gate-opt" data-wt="alkaline">
         <div style="font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;color:#fff;">Alkaline Water</div>
-        <div style="font-size:12px;color:#A0AEBD;margin-top:4px;">pH 8.5+ — smooth taste, great for active lifestyles</div>
+        <div style="font-size:12px;color:#888;margin-top:4px;font-family:'Inter',sans-serif;">pH 8.5+ — smooth taste, great for active lifestyles</div>
       </button>
       <button class="wt-gate-opt" data-wt="hydrogen">
         <div style="font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;color:#fff;">Hydrogen Water</div>
-        <div style="font-size:12px;color:#A0AEBD;margin-top:4px;">Infused with molecular hydrogen — premium hydration and antioxidants</div>
+        <div style="font-size:12px;color:#888;margin-top:4px;font-family:'Inter',sans-serif;">Infused with molecular hydrogen — premium hydration</div>
       </button>
     </div>
   </div>
 </div>
 <style>
-.wt-gate-opt{background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.1);border-radius:14px;padding:18px 22px;cursor:pointer;text-align:left;transition:border-color .2s,background .2s;width:100%;}
-.wt-gate-opt:hover,.wt-gate-opt:focus{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06);outline:none;}
-.wt-gate-opt.wt-gate-selected{border-color:#fff;background:rgba(255,255,255,.1);box-shadow:0 0 0 2px rgba(255,255,255,.1);}
+.wt-gate-opt{background:transparent;border:2px solid #333;padding:18px 22px;cursor:pointer;text-align:left;transition:border-color .15s;width:100%;}
+.wt-gate-opt:hover,.wt-gate-opt:focus{border-color:#FFF;outline:none;}
+.wt-gate-opt.wt-gate-selected{border-color:#00D4FF;}
 </style>
 
-
 <!-- ============================================================
-     LOADING SCREEN
+     LOADING SCREEN (JS compat — styled by styles.css)
      ============================================================ -->
 <div id="loading-screen" aria-hidden="true">
   <div class="loading-inner">
-    <img src="logo.png" alt="Waterboy Delivery" class="loading-logo"
+    <img src="Images%20for%20Menu/Images%20for%20Menu/logo.PNG" alt="Waterboy Delivery" class="loading-logo"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
     <div style="display:none;flex-direction:column;align-items:center;gap:10px;">
       <div style="font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;color:#fff;opacity:0;animation:logoReveal 0.9s ease forwards 0.4s;">WATERBOY</div>
-      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;color:#A0AEBD;opacity:0;animation:logoReveal 0.9s ease forwards 0.7s;">DELIVERY</div>
+      <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;color:#aaa;opacity:0;animation:logoReveal 0.9s ease forwards 0.7s;">DELIVERY</div>
     </div>
     <div class="loading-glow-ring"></div>
     <div class="loading-droplet"></div>
@@ -118,16 +683,12 @@
 </div>
 
 <!-- ============================================================
-     NAVBAR — DoorDash style
+     NAVBAR
      ============================================================ -->
 <nav id="navbar" role="navigation" aria-label="Main navigation">
-
-  <!-- Logo -->
   <a href="index.html" class="nav-logo" aria-label="Waterboy Delivery home">
-    <img src="logo.png" alt="Waterboy Delivery logo" onerror="this.style.display='none'" />
+    <img src="Images%20for%20Menu/Images%20for%20Menu/logo.PNG" alt="Waterboy Delivery logo" onerror="this.style.display='none'" />
   </a>
-
-  <!-- Center navigation links -->
   <div class="hn-center-links">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop Water</a>
@@ -135,350 +696,100 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </div>
-
-  <!-- Right side -->
   <div class="hn-nav-right">
     <a href="javascript:void(0)" class="hn-sign-in" onclick="typeof openAuthModal==='function'&&openAuthModal('signin')">Sign In</a>
-    <a href="javascript:void(0)" class="hn-get-started" onclick="typeof openAuthModal==='function'&&openAuthModal('signup')">Get Started</a>
+    <a href="water-delivery.html" class="hn-get-started">Order Now</a>
   </div>
-
-  <!-- Hamburger (mobile) -->
   <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open site navigation" aria-expanded="false" aria-controls="left-drawer">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
   </button>
-
-  <!-- nav-links ul — kept for script.js compat -->
   <ul class="nav-links" role="list" style="list-style:none;margin:0;padding:0;display:none;"></ul>
-
 </nav>
 
-
 <!-- ============================================================
-     HERO — Split 50 / 50
+     INFO BAR
      ============================================================ -->
-<section id="hero" aria-label="Hero section">
-
-  <!-- Particle canvases — kept for script.js -->
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
-  <canvas id="ripple-canvas" aria-hidden="true"></canvas>
-
-  <!-- Old hero elements kept in DOM hidden for script.js compat -->
-  <div class="hero-bg-img" aria-hidden="true"></div>
-  <div class="hero-glow-right" aria-hidden="true"></div>
-  <div class="hero-glow-left" aria-hidden="true"></div>
-
-  <!-- New split layout -->
-  <div class="hn-hero-split">
-
-    <!-- LEFT: copy + CTA -->
-    <div class="hn-hero-l">
-      <span class="hn-eyebrow">Pure Water. Delivered.</span>
-
-      <h1 class="hn-hero-h1">Water, Delivered<br>to Your Door.</h1>
-
-      <p class="hn-hero-sub">
-        Premium still and alkaline water in recyclable 5-gallon jugs.
-        Schedule your delivery, skip the store.
-      </p>
-
-      <!-- ZIP input row -->
-      <div class="hn-zip-row">
-        <input type="text" class="hn-zip-input" placeholder="Enter your ZIP code" maxlength="10" aria-label="Enter your ZIP code" />
-        <a href="delivery-areas.html" class="hn-zip-btn">Check Availability</a>
-      </div>
-      <p class="hn-zip-note">Serving Elk Grove, Sacramento County, and surrounding areas</p>
-
-      <!-- Trust badges -->
-      <div class="hn-trust-badges">
-        <span>Free Zone 1 Delivery</span>
-        <span class="hn-trust-dot">·</span>
-        <span>Recyclable Jugs</span>
-        <span class="hn-trust-dot">·</span>
-        <span>pH 8.5+ Alkaline Available</span>
-      </div>
-    </div>
-
-    <!-- RIGHT: product image -->
-    <div class="hn-hero-r">
-      <img
-        src="Images%20for%20Menu/Images%20for%20Menu/Gallon1.JPG"
-        alt="5-gallon water jug — Waterboy Delivery"
-        class="hn-hero-jug"
-        loading="eager"
-        onerror="this.style.opacity='0'"
-      />
-    </div>
-
-  </div>
-
-  <!-- Old hero content — hidden, kept for JS compat -->
-  <div class="hero-container container" style="display:none;" aria-hidden="true">
-    <div class="hero-content">
-      <h1 class="hero-title">Stay Hydrated.<br />Stay <span class="gradient-text">Refreshed.</span></h1>
-      <p class="hero-subtitle">Premium water delivery to Elk Grove and Sacramento County. RO, alkaline, or hydrogen — choose what you drink.</p>
-      <div class="hero-buttons">
-        <a href="water-delivery.html" class="btn-primary">View Plans &amp; Pricing</a>
-        <a href="delivery-areas.html" class="btn-secondary">Check My Area</a>
-      </div>
-    </div>
-    <div class="hero-image-wrap">
-      <div class="frost-crystal-tl" aria-hidden="true"></div>
-      <div class="frost-crystal-br" aria-hidden="true"></div>
-      <img src="Water%20disp%201.JPG" alt="" class="hero-image-float" style="display:none;" />
-      <div id="hero-placeholder" class="hero-image-placeholder" style="display:none;"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CATEGORY QUICK-SELECT STRIP
-     ============================================================ -->
-<div class="hn-cat-strip" role="navigation" aria-label="Browse categories">
-  <a href="water-delivery.html" class="hn-cat-pill active">Water Delivery</a>
-  <a href="shop.html" class="hn-cat-pill">Shop Products</a>
-  <a href="alkaline-water.html" class="hn-cat-pill">Alkaline Water</a>
-  <a href="water-delivery.html#bundles" class="hn-cat-pill">Bundle &amp; Save</a>
-  <a href="water-delivery.html#office" class="hn-cat-pill">Office Orders</a>
-  <a href="delivery-areas.html" class="hn-cat-pill">Same-Day</a>
+<div id="info-bar">
+  <a href="tel:+19166193218">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.26 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.17 1.17h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8 8a16 16 0 0 0 6.93 6.93l1.46-1.46a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    (916) 619-3218
+  </a>
+  <span class="info-bar-sep">|</span>
+  <a href="https://maps.google.com/?q=7119+Elk+Grove+Blvd,+Elk+Grove,+CA+95758" target="_blank" rel="noopener">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+    7119 Elk Grove Blvd, Elk Grove, CA 95758
+  </a>
 </div>
 
 <!-- ============================================================
-     FEATURED PRODUCTS ROW
+     HERO
      ============================================================ -->
-<section class="hn-featured-section" aria-labelledby="featured-heading">
-  <div class="hn-container">
-    <div class="hn-section-hd">
-      <h2 id="featured-heading">Featured This Week</h2>
-      <p>Best sellers, new arrivals, and staff picks</p>
+<section id="wb-hero" aria-label="Hero">
+  <!-- Hidden compat elements for script.js -->
+  <div style="display:none;" aria-hidden="true">
+    <canvas id="particles-canvas"></canvas>
+    <canvas id="ripple-canvas"></canvas>
+    <div class="hero-bg-img"></div>
+    <div class="hero-glow-right"></div>
+    <div class="hero-glow-left"></div>
+    <div id="hero"></div>
+    <div class="hero-container container">
+      <div class="hero-content">
+        <h1 class="hero-title"></h1>
+        <div id="hero-placeholder" class="hero-image-placeholder"></div>
+      </div>
     </div>
-    <div class="hn-products-scroll">
-
-      <a href="shop.html" class="hn-pc">
-        <div class="hn-pc-img">
-          <img src="Images%20for%20Menu/Images%20for%20Menu/Gallon1.JPG" alt="5 Gallon RO Water" loading="lazy">
-        </div>
-        <div class="hn-pc-info">
-          <div class="hn-pc-name">5 Gallon RO Water</div>
-          <div class="hn-pc-stars">★★★★★ <span style="opacity:.5;font-size:10px;">(98)</span></div>
-          <div class="hn-pc-price">$6.99</div>
-          <span class="hn-pc-atc">Shop Now</span>
-        </div>
-      </a>
-
-      <a href="shop.html" class="hn-pc">
-        <div class="hn-pc-img">
-          <img src="Images%20for%20Menu/Images%20for%20Menu/Gallon2.JPG" alt="5 Gallon Alkaline Water" loading="lazy">
-        </div>
-        <div class="hn-pc-info">
-          <div class="hn-pc-name">5 Gallon Alkaline Water</div>
-          <div class="hn-pc-stars">★★★★★ <span style="opacity:.5;font-size:10px;">(143)</span></div>
-          <div class="hn-pc-price">$7.99</div>
-          <span class="hn-pc-atc">Shop Now</span>
-        </div>
-      </a>
-
-      <a href="shop.html" class="hn-pc">
-        <div class="hn-pc-img">
-          <img src="Images%20for%20Menu/Images%20for%20Menu/Glass1.JPG" alt="Glass Water Bottle" loading="lazy">
-        </div>
-        <div class="hn-pc-info">
-          <div class="hn-pc-name">Glass Water Bottle</div>
-          <div class="hn-pc-stars">★★★★★ <span style="opacity:.5;font-size:10px;">(67)</span></div>
-          <div class="hn-pc-price">?</div>
-          <span class="hn-pc-atc">Shop Now</span>
-        </div>
-      </a>
-
-      <a href="shop.html" class="hn-pc">
-        <div class="hn-pc-img">
-          <img src="Images%20for%20Menu/Images%20for%20Menu/Bottle1.JPG" alt="Stainless Bottle" loading="lazy">
-        </div>
-        <div class="hn-pc-info">
-          <div class="hn-pc-name">Stainless Water Bottle</div>
-          <div class="hn-pc-stars">★★★★★ <span style="opacity:.5;font-size:10px;">(212)</span></div>
-          <div class="hn-pc-price">?</div>
-          <span class="hn-pc-atc">Shop Now</span>
-        </div>
-      </a>
-
-      <a href="shop.html" class="hn-pc">
-        <div class="hn-pc-img">
-          <img src="Images%20for%20Menu/Images%20for%20Menu/Cans.jpg" alt="Electrolyte Cans" loading="lazy">
-        </div>
-        <div class="hn-pc-info">
-          <div class="hn-pc-name">Electrolyte Cans</div>
-          <div class="hn-pc-stars">★★★★★ <span style="opacity:.5;font-size:10px;">(312)</span></div>
-          <div class="hn-pc-price">?</div>
-          <span class="hn-pc-atc">Shop Now</span>
-        </div>
-      </a>
-
-      <a href="shop.html" class="hn-pc">
-        <div class="hn-pc-img">
-          <img src="Images%20for%20Menu/Images%20for%20Menu/Pack1.PNG" alt="Electrolyte Packets" loading="lazy">
-        </div>
-        <div class="hn-pc-info">
-          <div class="hn-pc-name">Electrolyte Packets</div>
-          <div class="hn-pc-stars">★★★★★ <span style="opacity:.5;font-size:10px;">(187)</span></div>
-          <div class="hn-pc-price">?</div>
-          <span class="hn-pc-atc">Shop Now</span>
-        </div>
-      </a>
-
+    <div class="hn-hero-split">
+      <div class="hn-hero-l"></div>
+      <div class="hn-hero-r"></div>
     </div>
+  </div>
+
+  <div id="wb-hero-l">
+    <span class="wb-eyebrow">Pure Water. Delivered.</span>
+    <h1 class="wb-hero-h1">Water.<br>Delivered.</h1>
+    <p class="wb-hero-sub">RO, Alkaline, and Hydrogen water delivered to your door in Elk Grove, CA.</p>
+    <a href="water-delivery.html" class="wb-cta-btn">Start Your Delivery</a>
+    <a href="tel:+19166193218" class="wb-hero-phone">(916) 619-3218</a>
+  </div>
+
+  <div id="wb-hero-r">
+    <img
+      src="Images%20for%20Menu/Images%20for%20Menu/logo.PNG"
+      alt="Waterboy Delivery"
+      style="max-width:360px;width:100%;object-fit:contain;mix-blend-mode:multiply;background:transparent;"
+      onerror="this.style.display='none'"
+    />
   </div>
 </section>
 
 <!-- ============================================================
-     HOW IT WORKS  (id kept for anchor + JS)
+     WHAT WE DELIVER
      ============================================================ -->
-<section id="services" aria-labelledby="how-heading">
+<section id="wb-deliver" aria-labelledby="wb-deliver-h">
+  <div class="wb-deliver-inner">
+    <h2 id="wb-deliver-h" class="wb-section-h wb-section-h--light">Three types.<br>One delivery.</h2>
+    <div class="wb-cards">
 
-  <div class="hn-container">
-
-    <div class="hn-how-head">
-      <h2 id="how-heading">How It Works</h2>
-      <p>Three easy steps to pure water at your door</p>
-    </div>
-
-    <div class="hn-how-grid">
-
-      <div class="hn-how-step reveal">
-        <div class="hn-how-icon-wrap">
-          <span class="hn-how-num">01</span>
-        </div>
-        <h3 class="hn-how-h3">Choose Your Water</h3>
-        <p class="hn-how-p">Select from RO, alkaline pH 8.5+, or premium hydrogen water. Pick your jug count and delivery frequency — weekly, bi-weekly, or monthly.</p>
+      <div class="wb-card">
+        <div class="wb-card-name">RO Water</div>
+        <div class="wb-card-price">From $6.99</div>
+        <div class="wb-card-desc">Ultra-pure reverse osmosis — 99% of contaminants removed. Clean and crisp for everyday drinking.</div>
+        <a href="water-delivery.html" class="wb-card-link">Order Now →</a>
       </div>
 
-      <div class="hn-how-step reveal reveal-delay-2">
-        <div class="hn-how-icon-wrap">
-          <span class="hn-how-num">02</span>
-        </div>
-        <h3 class="hn-how-h3">Pick a Delivery Day</h3>
-        <p class="hn-how-p">Choose Mon–Sat delivery. We'll remind you the night before and notify you when we're on the way — no surprises, no waiting around.</p>
+      <div class="wb-card">
+        <div class="wb-card-name">Alkaline Water</div>
+        <div class="wb-card-price">From $7.99</div>
+        <div class="wb-card-desc">pH 8.5+ for smooth taste and optimal hydration. Perfect for active lifestyles.</div>
+        <a href="water-delivery.html" class="wb-card-link">Order Now →</a>
       </div>
 
-      <div class="hn-how-step reveal reveal-delay-3">
-        <div class="hn-how-icon-wrap">
-          <span class="hn-how-num">03</span>
-        </div>
-        <h3 class="hn-how-h3">We Bring It to You</h3>
-        <p class="hn-how-p">Leave your empties at the door. We swap them out for full jugs and you never run out of water. Free delivery in Zone 1, no contracts.</p>
-      </div>
-
-    </div>
-
-    <!-- Preserved service block data (hidden) for existing content integrity -->
-    <div style="display:none;" aria-hidden="true">
-      <!-- Block 1: Water Delivery -->
-      <article class="hub-block hub-block-1" aria-label="Water Delivery service">
-        <div class="hub-content"><div class="hub-content-inner">
-          <span class="hub-label">Home &amp; Office</span>
-          <h3 class="hub-title">Water Delivery</h3>
-          <p class="hub-desc">Fresh 5-gallon jugs of RO, alkaline pH 8.5+, or hydrogen water, delivered on your schedule. We swap empty jugs for full ones on every visit — zero hassle, zero clutter.</p>
-          <ul class="hub-bullets">
-            <li>RO from $6.99 · Alkaline from $7.99 · Hydrogen from $12.99</li>
-            <li>No contracts — order anytime</li>
-            <li>Free delivery within 3 miles of Elk Grove</li>
-          </ul>
-          <a href="water-delivery.html" class="hub-cta">View Plans</a>
-        </div></div>
-      </article>
-      <!-- Block 2: Dispensers -->
-      <article class="hub-block hub-block-2 flip" aria-label="Dispenser purchase and rental">
-        <div class="hub-content"><div class="hub-content-inner">
-          <span class="hub-label">Purchase &amp; Rental</span>
-          <h3 class="hub-title">Dispenser Purchase &amp; Rental</h3>
-          <p class="hub-desc">Own it or rent it — Brio bottom-load and top-load dispensers available for purchase or low monthly rental.</p>
-          <ul class="hub-bullets">
-            <li>Top-load from $129.99 purchase · $10/mo rental</li>
-            <li>Bottom-load from $279.99 purchase · $25/mo rental</li>
-            <li>Free maintenance included with every rental</li>
-          </ul>
-          <a href="dispensers.html" class="hub-cta">Shop &amp; Rent Dispensers</a>
-        </div></div>
-      </article>
-      <!-- Block 3: In-Store Products -->
-      <article class="hub-block hub-block-4 flip" aria-label="In-store products">
-        <div class="hub-content"><div class="hub-content-inner">
-          <span class="hub-label">30+ Products</span>
-          <h3 class="hub-title">In-Store Products</h3>
-          <p class="hub-desc">Visit us at 7119 Elk Grove Blvd for RO, alkaline, and hydrogen water refills, glass bottles, electrolytes, and more.</p>
-          <ul class="hub-bullets">
-            <li>5-gallon and 3-gallon jugs · glass &amp; aluminum bottles</li>
-            <li>Electrolyte salt sticks, canned drinks, supplements</li>
-            <li>Ceramic crocks and water accessories</li>
-          </ul>
-          <a href="shop.html" class="hub-cta">Shop Products</a>
-        </div></div>
-      </article>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     PRICING / BUNDLES
-     ============================================================ -->
-<section class="hn-pricing-section" aria-labelledby="pricing-heading">
-  <div class="hn-container">
-
-    <div class="hn-pricing-head">
-      <h2 id="pricing-heading">Simple Monthly Bundles</h2>
-      <p>No contracts. Cancel anytime.</p>
-    </div>
-
-    <div class="hn-bundles-wrap">
-
-      <div class="hn-bundle">
-        <span class="hn-bundle-badge">Starter</span>
-        <div class="hn-bundle-jugs">2</div>
-        <p class="hn-bundle-jugs-lbl">5-gallon jugs / mo</p>
-        <div class="hn-bundle-name">Solo</div>
-        <div class="hn-bundle-price">$13.99<span style="font-size:16px;font-weight:400;color:#5A6A7A;">/mo</span></div>
-        <p class="hn-bundle-savings">RO from $6.99/jug · Saves ~$4 vs Water.com</p>
-        <a href="water-delivery.html" class="hn-bundle-btn">Order Now</a>
-      </div>
-
-      <div class="hn-bundle popular">
-        <span class="hn-bundle-badge is-popular">Most Popular</span>
-        <div class="hn-bundle-jugs">4</div>
-        <p class="hn-bundle-jugs-lbl">5-gallon jugs / mo</p>
-        <div class="hn-bundle-name">Family</div>
-        <div class="hn-bundle-price">$25.99<span style="font-size:16px;font-weight:400;color:#5A6A7A;">/mo</span></div>
-        <p class="hn-bundle-savings">RO from $6.99/jug · Saves ~$12 vs Water.com</p>
-        <a href="water-delivery.html" class="hn-bundle-btn">Order Now</a>
-      </div>
-
-      <div class="hn-bundle">
-        <span class="hn-bundle-badge">Best Value</span>
-        <div class="hn-bundle-jugs">8</div>
-        <p class="hn-bundle-jugs-lbl">5-gallon jugs / mo</p>
-        <div class="hn-bundle-name">Household</div>
-        <div class="hn-bundle-price">$47.99<span style="font-size:16px;font-weight:400;color:#5A6A7A;">/mo</span></div>
-        <p class="hn-bundle-savings">RO from $6.99/jug · Saves ~$24 vs Water.com</p>
-        <a href="water-delivery.html" class="hn-bundle-btn">Order Now</a>
-      </div>
-
-      <div class="hn-bundle">
-        <span class="hn-bundle-badge">Office</span>
-        <div class="hn-bundle-jugs">12</div>
-        <p class="hn-bundle-jugs-lbl">5-gallon jugs / mo</p>
-        <div class="hn-bundle-name">Office</div>
-        <div class="hn-bundle-price">$67.99<span style="font-size:16px;font-weight:400;color:#5A6A7A;">/mo</span></div>
-        <p class="hn-bundle-savings">RO from $6.99/jug · Saves ~$38 vs Water.com</p>
-        <a href="water-delivery.html" class="hn-bundle-btn">Order Now</a>
-      </div>
-
-      <div class="hn-bundle">
-        <span class="hn-bundle-badge">Premium</span>
-        <div class="hn-bundle-jugs">20</div>
-        <p class="hn-bundle-jugs-lbl">5-gallon jugs / mo</p>
-        <div class="hn-bundle-name">Max Bundle</div>
-        <div class="hn-bundle-price">$109.99<span style="font-size:16px;font-weight:400;color:#5A6A7A;">/mo</span></div>
-        <p class="hn-bundle-savings">RO from $6.99/jug · Saves ~$90 vs Water.com</p>
-        <a href="water-delivery.html" class="hn-bundle-btn">Order Now</a>
+      <div class="wb-card">
+        <div class="wb-card-name">Hydrogen Water</div>
+        <div class="wb-card-price">From $12.99</div>
+        <div class="wb-card-desc">Infused with molecular hydrogen for premium antioxidant hydration.</div>
+        <a href="water-delivery.html" class="wb-card-link">Order Now →</a>
       </div>
 
     </div>
@@ -486,137 +797,162 @@
 </section>
 
 <!-- ============================================================
-     STATS ROW
+     HOW IT WORKS
      ============================================================ -->
-<section class="hn-stats-section" aria-label="Waterboy Delivery stats">
-  <div class="hn-stats-grid">
-    <div class="hn-stat">
-      <span class="hn-stat-num">500+</span>
-      <span class="hn-stat-lbl">Happy Customers</span>
-    </div>
-    <div class="hn-stat">
-      <span class="hn-stat-num">5,000+</span>
-      <span class="hn-stat-lbl">Jugs Delivered</span>
-    </div>
-    <div class="hn-stat">
-      <span class="hn-stat-num">3</span>
-      <span class="hn-stat-lbl">Delivery Zones</span>
-    </div>
-    <div class="hn-stat">
-      <span class="hn-stat-num">4.9★</span>
-      <span class="hn-stat-lbl">Average Rating</span>
-    </div>
-  </div>
-</section>
+<section id="wb-how" aria-labelledby="wb-how-h">
+  <!-- id="services" alias for script.js anchor -->
+  <div id="services" style="display:none;" aria-hidden="true"></div>
+  <div class="wb-how-inner">
+    <h2 id="wb-how-h" class="wb-section-h wb-section-h--dark">How it works.</h2>
+    <div class="wb-steps">
 
-<!-- ============================================================
-     APP / MANAGE SECTION
-     ============================================================ -->
-<section class="hn-app-section" aria-label="App management">
-  <div class="hn-app-inner">
-
-    <div class="hn-app-left">
-      <h2 class="hn-app-h2">Manage everything<br>from your phone.</h2>
-      <p class="hn-app-p">Track your delivery, manage your subscription, schedule pickups, and monitor your hydration — all in the Waterboy app. Available now.</p>
-
-      <div class="hn-app-btns">
-        <a href="#" class="hn-store-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          App Store
-        </a>
-        <a href="#" class="hn-store-btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="m3 20.5v-17c0-.83.94-1.3 1.6-.8l14 8.5c.6.36.6 1.24 0 1.6l-14 8.5c-.66.5-1.6.03-1.6-.8z"/></svg>
-          Google Play
-        </a>
+      <div class="wb-step">
+        <div class="wb-step-num">01</div>
+        <div class="wb-step-title">Choose Your Water</div>
+        <div class="wb-step-desc">Select RO, alkaline pH 8.5+, or hydrogen water. Pick your jug size — 1, 2, 3, or 5 gallon.</div>
       </div>
-      <a href="#" class="hn-app-link">waterboyapp.netlify.app</a>
-    </div>
 
-    <!-- CSS phone mockup -->
-    <div class="hn-phone" aria-hidden="true">
-      <div class="hn-phone-screen">
-        <span class="hn-phone-text">Waterboy</span>
+      <div class="wb-step">
+        <div class="wb-step-num">02</div>
+        <div class="wb-step-title">Pick a Delivery Day</div>
+        <div class="wb-step-desc">Choose Mon–Sat delivery. We'll notify you the night before and when we're on the way.</div>
       </div>
-    </div>
 
+      <div class="wb-step">
+        <div class="wb-step-num">03</div>
+        <div class="wb-step-title">We Bring It to You</div>
+        <div class="wb-step-desc">Leave your empties at the door. We swap them for full jugs. Free delivery in Zone 1, no contracts.</div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- ============================================================
-     TESTIMONIALS
+     PRICING
      ============================================================ -->
-<section class="hn-testimonials-section" aria-labelledby="testimonials-title">
-  <div class="hn-container">
-    <div class="text-center reveal" style="margin-bottom:48px;">
-      <span class="section-label">Reviews</span>
-      <h2 id="testimonials-title" class="section-title dark">People Love Their Waterboy</h2>
-    </div>
-    <div class="testimonials-grid">
-      <article class="testimonial-card reveal reveal-delay-1">
-        <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-        <p class="tc-text">"Switched from Water.com and we're saving over $20 a month. The alkaline water is incredible — smooth taste, never going back."</p>
-        <div class="tc-author">
-          <div class="tc-avatar" aria-hidden="true">JM</div>
-          <div><div class="tc-name">Jessica M.</div><div class="tc-role">Home Customer, Elk Grove</div></div>
+<section id="wb-pricing" aria-labelledby="wb-pricing-h">
+  <div class="wb-pricing-inner">
+    <h2 id="wb-pricing-h" class="wb-section-h wb-section-h--dark">Simple pricing.</h2>
+    <div class="wb-pricing-grid">
+
+      <!-- RO -->
+      <div class="wb-price-card">
+        <div class="wb-price-type">Reverse Osmosis</div>
+        <div class="wb-price-sub">Ultra-pure · 99% contaminants removed</div>
+        <div class="wb-price-grid">
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">1 Gallon</div>
+            <div class="wb-price-cell-val">$6.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">2 Gallon</div>
+            <div class="wb-price-cell-val">$8.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">3 Gallon</div>
+            <div class="wb-price-cell-val">$9.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">5 Gallon</div>
+            <div class="wb-price-cell-val">$10.99</div>
+          </div>
         </div>
-      </article>
-      <article class="testimonial-card reveal reveal-delay-2">
-        <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-        <p class="tc-text">"They always show up on time, swap the empties, and the water quality is excellent. The office team loves it. Couldn't be easier."</p>
-        <div class="tc-author">
-          <div class="tc-avatar" aria-hidden="true">RK</div>
-          <div><div class="tc-name">Robert K.</div><div class="tc-role">Office Manager, Sacramento</div></div>
+        <a href="water-delivery.html" class="wb-order-btn">Order RO Water</a>
+      </div>
+
+      <!-- Alkaline -->
+      <div class="wb-price-card">
+        <div class="wb-badge">Most Popular</div>
+        <div class="wb-price-type">Alkaline Water</div>
+        <div class="wb-price-sub">pH 8.5+ · Smooth taste · Fitness-ready</div>
+        <div class="wb-price-grid">
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">1 Gallon</div>
+            <div class="wb-price-cell-val">$7.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">2 Gallon</div>
+            <div class="wb-price-cell-val">$10.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">3 Gallon</div>
+            <div class="wb-price-cell-val">$11.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">5 Gallon</div>
+            <div class="wb-price-cell-val">$13.99</div>
+          </div>
         </div>
-      </article>
-      <article class="testimonial-card reveal reveal-delay-3">
-        <div class="tc-stars" aria-label="5 stars">★★★★★</div>
-        <p class="tc-text">"The Brio dispenser rental is a game-changer. Hot water for coffee, cold for the kids — all for $25 a month. Highly recommend."</p>
-        <div class="tc-author">
-          <div class="tc-avatar" aria-hidden="true">ML</div>
-          <div><div class="tc-name">Maria L.</div><div class="tc-role">Home Customer, Elk Grove</div></div>
+        <a href="water-delivery.html" class="wb-order-btn">Order Alkaline Water</a>
+      </div>
+
+      <!-- Hydrogen -->
+      <div class="wb-price-card">
+        <div class="wb-price-type">Hydrogen Water</div>
+        <div class="wb-price-sub">Molecular H₂ · Premium antioxidants</div>
+        <div class="wb-price-grid">
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">1 Gallon</div>
+            <div class="wb-price-cell-val">$12.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">2 Gallon</div>
+            <div class="wb-price-cell-val">$17.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">3 Gallon</div>
+            <div class="wb-price-cell-val">$20.99</div>
+          </div>
+          <div class="wb-price-cell">
+            <div class="wb-price-cell-lbl">5 Gallon</div>
+            <div class="wb-price-cell-val">$24.99</div>
+          </div>
         </div>
-      </article>
+        <a href="water-delivery.html" class="wb-order-btn">Order Hydrogen Water</a>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     CTA BANNER
+     TRUST BAR
      ============================================================ -->
-<section id="cta-banner" aria-labelledby="cta-title">
-  <div class="cta-glow-left" aria-hidden="true"></div>
-  <div class="cta-glow-right" aria-hidden="true"></div>
-  <div class="container">
-    <h2 id="cta-title" class="section-title dark reveal" style="margin-bottom:18px;">Your Water, Your Way.</h2>
-    <p class="section-subtitle dark reveal" style="margin-bottom:40px;">Start your delivery today. Pure water, premium dispensers, zero hassle.</p>
-    <div class="cta-buttons reveal">
-      <a href="water-delivery.html" class="btn-cta-large">
-        View Plans &amp; Start Delivery
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
-    </div>
-    <p class="cta-fine-print reveal">No contracts. No commitments. Cancel anytime.</p>
+<div id="wb-trust" role="list" aria-label="Service highlights">
+  <div class="wb-trust-item" role="listitem">Same-Day Delivery</div>
+  <div class="wb-trust-item" role="listitem">No Contracts</div>
+  <div class="wb-trust-item" role="listitem">Free Zone 1 Delivery</div>
+  <div class="wb-trust-item" role="listitem">pH 8.5+ Alkaline</div>
+</div>
+
+<!-- ============================================================
+     SERVICE AREA
+     ============================================================ -->
+<section id="wb-area" aria-labelledby="wb-area-h">
+  <div class="wb-area-inner">
+    <h2 id="wb-area-h" class="wb-section-h wb-section-h--dark">Delivering across<br>Elk Grove.</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:18px;font-weight:400;color:#666;margin:0 0 8px;">Same-day available. No contracts. Cancel anytime.</p>
+    <p class="wb-area-p">We serve Elk Grove, Sacramento County, and surrounding areas. Same-day delivery available in Zone 1.</p>
+    <a href="delivery-areas.html" class="wb-cta-btn">Check Your Delivery Zone</a>
   </div>
 </section>
 
 <!-- ============================================================
-     FOOTER — 4 columns
+     FOOTER
      ============================================================ -->
 <footer id="footer" role="contentinfo">
 
-  <!-- New 4-col footer structure -->
-  <div class="hn-footer-grid">
+  <div class="wb-footer-grid">
 
-    <!-- Col 1: Brand -->
-    <div class="hn-footer-brand">
-      <img src="logo.png" alt="Waterboy Delivery" onerror="this.outerHTML='<div style=\'font-family:Outfit,sans-serif;font-size:18px;font-weight:900;color:white;\'>WATERBOY</div>'" />
-      <p class="hn-footer-tagline">Pure water, delivered to your door. Family-owned in Elk Grove, CA.</p>
-      <a href="tel:+19166193218" class="hn-footer-phone">(916) 619-3218</a>
-      <span class="hn-footer-loc">7119 Elk Grove Blvd, Elk Grove, CA 95758</span>
+    <div class="wb-footer-brand">
+      <img src="Images%20for%20Menu/Images%20for%20Menu/logo.PNG" alt="Waterboy Delivery" style="mix-blend-mode:multiply;height:48px;object-fit:contain;" onerror="this.style.display='none'" />
+      <p class="wb-footer-tagline">Pure water, delivered to your door. Family-owned in Elk Grove, CA.</p>
+      <a href="tel:+19166193218" class="wb-footer-phone">(916) 619-3218</a>
+      <span class="wb-footer-loc">7119 Elk Grove Blvd, Elk Grove, CA 95758</span>
     </div>
 
-    <!-- Col 2: Delivery -->
-    <div class="hn-footer-col">
+    <div class="wb-footer-col">
       <h4>Delivery</h4>
       <nav aria-label="Delivery links">
         <a href="how-it-works.html">How It Works</a>
@@ -626,19 +962,17 @@
       </nav>
     </div>
 
-    <!-- Col 3: Products -->
-    <div class="hn-footer-col">
+    <div class="wb-footer-col">
       <h4>Products</h4>
       <nav aria-label="Product links">
         <a href="shop.html">Shop All</a>
         <a href="alkaline-water.html">Alkaline Water</a>
-        <a href="water-delivery.html#bundles">Bundles</a>
+        <a href="water-delivery.html">Pricing</a>
         <a href="dispensers.html">Dispensers</a>
       </nav>
     </div>
 
-    <!-- Col 4: Company -->
-    <div class="hn-footer-col">
+    <div class="wb-footer-col">
       <h4>Company</h4>
       <nav aria-label="Company links">
         <a href="about.html">About</a>
@@ -650,22 +984,20 @@
 
   </div>
 
-  <!-- Bottom bar -->
-  <div class="hn-footer-bottom">
-    <p class="hn-footer-copy">© 2026 Waterboy Delivery. All rights reserved. Serving Elk Grove &amp; Sacramento County.</p>
-    <div class="hn-footer-socials">
-      <a href="#" class="hn-social" aria-label="Instagram">ig</a>
-      <a href="#" class="hn-social" aria-label="Facebook">fb</a>
-      <a href="#" class="hn-social" aria-label="Twitter / X">x</a>
+  <div class="wb-footer-bottom">
+    <p class="wb-footer-copy">© 2026 Waterboy Delivery. All rights reserved. Serving Elk Grove &amp; Sacramento County.</p>
+    <div class="wb-footer-socials">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="Facebook">FB</a>
+      <a href="#" aria-label="Twitter / X">X</a>
     </div>
   </div>
 
-  <!-- Old footer grid kept hidden for any JS refs -->
+  <!-- Hidden old footer markup for JS refs -->
   <div style="display:none;" aria-hidden="true">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-tagline">PURE WATER. DELIVERED.</div>
-        <p class="footer-desc">Premium 5-gallon water delivery and dispenser solutions for homes and businesses in Elk Grove &amp; Sacramento County.</p>
         <a href="tel:+19166193218" class="footer-phone">(916) 619-3218</a>
       </div>
       <div class="footer-col">
@@ -681,6 +1013,8 @@
       <p class="footer-copy">© 2026 Waterboy Delivery.</p>
       <nav class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></nav>
     </div>
+    <div class="hn-footer-grid"></div>
+    <div class="hn-footer-bottom"></div>
   </div>
 
 </footer>
@@ -736,9 +1070,6 @@
 <script src="water-type-selector.js"></script>
 <script src="left-menu.js"></script>
 <script src="shared.js"></script>
-<script>
-(function(){var el=document.querySelector('.hn-products-scroll');if(!el)return;var isDown=false,startX,scrollLeft;el.style.cursor='grab';el.addEventListener('mousedown',function(e){isDown=true;el.style.cursor='grabbing';startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});el.addEventListener('mouseleave',function(){isDown=false;el.style.cursor='grab';});el.addEventListener('mouseup',function(){isDown=false;el.style.cursor='grab';});el.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-el.offsetLeft;var walk=(x-startX)*1.5;el.scrollLeft=scrollLeft-walk;});})();
-</script>
 <script>
 (function () {
   var LABEL = { ro: 'RO Water', alkaline: 'Alkaline Water', hydrogen: 'Hydrogen Water' };
