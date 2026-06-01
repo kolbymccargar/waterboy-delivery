@@ -124,6 +124,7 @@
 .nav-cart-btn,.nav-user-btn{position:relative;background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;color:#8BB8D4;padding:6px 8px;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif;transition:color .2s;vertical-align:middle}
 .nav-cart-btn:hover,.nav-user-btn:hover{color:#00D4FF}
 .nav-cart-btn svg,.nav-user-btn svg{stroke:currentColor;display:block}
+.nav-cart-btn{min-width:40px;min-height:40px;overflow:visible;display:flex;align-items:center;justify-content:center}
 .cart-badge{position:absolute;top:-4px;right:-4px;background:#00D4FF;color:#070F18;font-size:10px;font-weight:800;font-family:'Space Grotesk',sans-serif;min-width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 3px;line-height:1}
 
 /* ── User Dropdown ────────────────────────────────────────────── */

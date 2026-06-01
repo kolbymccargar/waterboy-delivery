@@ -646,23 +646,11 @@ function inject(){
    <div class="step-bar">
     <div class="step-dot active"></div><div class="step-line"></div>
     <div class="step-dot"></div><div class="step-line"></div>
-    <div class="step-dot"></div><div class="step-line"></div>
-    <div class="step-dot"></div><div class="step-line"></div>
     <div class="step-dot"></div>
    </div>
-   <!-- Step 0: Info -->
-   <div class="step-panel active" id="co-step-0">
-    <p class="step-title">Delivery Information</p>
-    <div class="wb-row"><div class="wb-field"><label>First Name</label><input id="co-fname" placeholder="Jane"></div><div class="wb-field"><label>Last Name</label><input id="co-lname" placeholder="Smith"></div></div>
-    <div class="wb-field"><label>Phone</label><input id="co-phone" type="tel" placeholder="(916) 555-0000"></div>
-    <div class="wb-field"><label>Email</label><input id="co-email" type="email" placeholder="you@email.com"></div>
-    <div class="wb-field"><label>Street Address</label><input id="co-addr" placeholder="123 Main St, Sacramento CA"></div>
-    <div class="wb-row"><div class="wb-field"><label>City</label><input id="co-city" placeholder="Sacramento" value="Sacramento"></div><div class="wb-field"><label>ZIP</label><input id="co-zip" placeholder="95814"></div></div>
-    <div class="wb-field"><label>Notes (optional)</label><textarea id="co-notes" style="min-height:56px" placeholder="Gate code, drop-off location…"></textarea></div>
-    <div class="step-nav"><button class="wb-btn" id="co-next-0">Next: Schedule →</button></div>
-   </div>
    <!-- Step 1: Schedule -->
-   <div class="step-panel" id="co-step-1">
+   <div class="step-panel active" id="co-step-1">
+    <div class="first-timer-banner" style="background:#E8F0FE;border-left:4px solid #0A47A1;border-radius:8px;padding:16px 20px;margin-bottom:24px;"><div style="font-weight:800;font-family:'Outfit',sans-serif;color:#0A47A1;font-size:15px;margin-bottom:4px;">First delivery? No problem.</div><div style="color:#1a3a6b;font-size:13px;line-height:1.55;">We provide all bottles for your first order. No bottle swap needed. First-time promotions and waived delivery fees apply to your first order only.</div></div>
     <p class="step-title">Choose Delivery Date &amp; Time</p>
     <div class="order-type-wrap">
      <button class="ot-btn sel" data-ot="one-time">One-Time</button>
@@ -693,7 +681,7 @@ function inject(){
     <div id="co-calendar"></div>
     <p style="font-size:12px;color:#8BB8D4;margin:10px 0 6px">Select a time window:</p>
     <div class="time-wins" id="co-time-wins"></div>
-    <div class="step-nav"><button class="wb-btn-ghost step-back" id="co-back-1">← Back</button><button class="wb-btn" id="co-next-1">Next: Payment →</button></div>
+    <div class="step-nav"><button class="wb-btn" id="co-next-1">Next: Add-Ons →</button></div>
    </div>
    <!-- Step 1b: Add-Ons -->
    <div class="step-panel" id="co-step-addons">
@@ -710,12 +698,20 @@ function inject(){
       </div>`).join('')}
      </div>
     </div>
-    <div class="step-nav"><button class="wb-btn-ghost step-back" id="co-back-addons">← Back</button><button class="wb-btn" id="co-next-addons">Next: Payment →</button></div>
+    <div class="step-nav"><button class="wb-btn-ghost step-back" id="co-back-addons">← Back</button><button class="wb-btn" id="co-next-addons">Review Order →</button></div>
    </div>
 
-   <!-- Step 2: Payment -->
+   <!-- Step 2: Review and Place Order -->
    <div class="step-panel" id="co-step-2">
-    <p class="step-title">Payment</p>
+    <p class="step-title">Review and Place Order</p>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:0 0 10px;font-weight:600">Your Details</p>
+    <div class="wb-row"><div class="wb-field"><label>First Name</label><input id="co-fname" placeholder="Jane"></div><div class="wb-field"><label>Last Name</label><input id="co-lname" placeholder="Smith"></div></div>
+    <div class="wb-field"><label>Phone</label><input id="co-phone" type="tel" placeholder="(916) 555-0000"></div>
+    <div class="wb-field"><label>Email</label><input id="co-email" type="email" placeholder="you@email.com"></div>
+    <div class="wb-field"><label>Street Address</label><input id="co-addr" placeholder="123 Main St, Sacramento CA"></div>
+    <div class="wb-row"><div class="wb-field"><label>City</label><input id="co-city" placeholder="Sacramento" value="Sacramento"></div><div class="wb-field"><label>ZIP</label><input id="co-zip" placeholder="95814"></div></div>
+    <div class="wb-field"><label>Notes (optional)</label><textarea id="co-notes" style="min-height:56px" placeholder="Gate code, drop-off location…"></textarea></div>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:18px 0 10px;font-weight:600">Payment</p>
     <div class="pay-opts">
      <button class="pay-apple" id="co-apple-pay">🍎 Apple Pay</button>
      <button class="pay-google" id="co-google-pay"><span style="font-weight:700;color:#4285F4">G</span><span style="font-weight:700;color:#EA4335">o</span><span style="font-weight:700;color:#FBBC05">o</span><span style="font-weight:700;color:#34A853">g</span><span style="font-weight:700;color:#4285F4">l</span><span style="font-weight:700;color:#EA4335">e</span> Pay</button>
@@ -752,12 +748,11 @@ function inject(){
    <div class="step-bar">
     <div class="step-dot active"></div><div class="step-line"></div>
     <div class="step-dot"></div><div class="step-line"></div>
-    <div class="step-dot"></div><div class="step-line"></div>
-    <div class="step-dot"></div><div class="step-line"></div>
     <div class="step-dot"></div>
    </div>
-   <!-- Step 0: Plan -->
+   <!-- Step 1: Water Type & Plan -->
    <div class="step-panel active" id="sub-step-0">
+    <div class="first-timer-banner" style="background:#E8F0FE;border-left:4px solid #0A47A1;border-radius:8px;padding:16px 20px;margin-bottom:24px;"><div style="font-weight:800;font-family:'Outfit',sans-serif;color:#0A47A1;font-size:15px;margin-bottom:4px;">First delivery? No problem.</div><div style="color:#1a3a6b;font-size:13px;line-height:1.55;">We provide all bottles for your first order. No bottle swap needed. First-time promotions and waived delivery fees apply to your first order only.</div></div>
     <p class="step-title">Your Plan</p>
     <div class="sub-plan-card" id="sub-plan-display"></div>
     <p style="margin:14px 0 8px;font-size:12px;font-weight:600;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px">Water Type</p>
@@ -767,17 +762,7 @@ function inject(){
      <button class="wtype-btn" data-wt="hydrogen">Hydrogen</button>
     </div>
     <p class="wtype-ph" style="font-family:'Space Grotesk',sans-serif;font-size:11px;color:#8BB8D4;margin-top:4px"></p>
-    <div class="step-nav"><button class="wb-btn" id="sub-next-0">Next: Your Info →</button></div>
-   </div>
-   <!-- Step 1: Info -->
-   <div class="step-panel" id="sub-step-1">
-    <p class="step-title">Contact &amp; Delivery Info</p>
-    <div class="wb-row"><div class="wb-field"><label>First Name</label><input id="sub-fname" placeholder="Jane"></div><div class="wb-field"><label>Last Name</label><input id="sub-lname" placeholder="Smith"></div></div>
-    <div class="wb-field"><label>Phone</label><input id="sub-phone" type="tel" placeholder="(916) 555-0000"></div>
-    <div class="wb-field"><label>Email</label><input id="sub-email" type="email" placeholder="you@email.com"></div>
-    <div class="wb-field"><label>Street Address</label><input id="sub-addr" placeholder="123 Main St"></div>
-    <div class="wb-row"><div class="wb-field"><label>City</label><input id="sub-city" placeholder="Sacramento" value="Sacramento"></div><div class="wb-field"><label>ZIP</label><input id="sub-zip" placeholder="95814"></div></div>
-    <div class="step-nav"><button class="wb-btn-ghost step-back" id="sub-back-1">← Back</button><button class="wb-btn" id="sub-next-1">Next: Schedule →</button></div>
+    <div class="step-nav"><button class="wb-btn" id="sub-next-0">Next: Size & Schedule →</button></div>
    </div>
    <!-- Step 2: Schedule -->
    <div class="step-panel" id="sub-step-2">
@@ -785,11 +770,18 @@ function inject(){
     <div id="sub-calendar"></div>
     <p style="font-size:12px;color:#8BB8D4;margin:10px 0 6px">Select a time window:</p>
     <div class="time-wins" id="sub-time-wins"></div>
-    <div class="step-nav"><button class="wb-btn-ghost step-back" id="sub-back-2">← Back</button><button class="wb-btn" id="sub-next-2">Next: Payment →</button></div>
+    <div class="step-nav"><button class="wb-btn-ghost step-back" id="sub-back-2">← Back</button><button class="wb-btn" id="sub-next-2">Review Order →</button></div>
    </div>
-   <!-- Step 3: Payment -->
+   <!-- Step 3: Review and Place Order -->
    <div class="step-panel" id="sub-step-3">
-    <p class="step-title">Payment</p>
+    <p class="step-title">Review and Place Order</p>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:0 0 10px;font-weight:600">Your Details</p>
+    <div class="wb-row"><div class="wb-field"><label>First Name</label><input id="sub-fname" placeholder="Jane"></div><div class="wb-field"><label>Last Name</label><input id="sub-lname" placeholder="Smith"></div></div>
+    <div class="wb-field"><label>Phone</label><input id="sub-phone" type="tel" placeholder="(916) 555-0000"></div>
+    <div class="wb-field"><label>Email</label><input id="sub-email" type="email" placeholder="you@email.com"></div>
+    <div class="wb-field"><label>Street Address</label><input id="sub-addr" placeholder="123 Main St"></div>
+    <div class="wb-row"><div class="wb-field"><label>City</label><input id="sub-city" placeholder="Sacramento" value="Sacramento"></div><div class="wb-field"><label>ZIP</label><input id="sub-zip" placeholder="95814"></div></div>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:18px 0 10px;font-weight:600">Payment</p>
     <div class="pay-opts">
      <button class="pay-apple" id="sub-apple-pay">🍎 Apple Pay</button>
      <button class="pay-google" id="sub-google-pay"><span style="font-weight:700;color:#4285F4">G</span><span style="font-weight:700;color:#EA4335">o</span><span style="font-weight:700;color:#FBBC05">o</span><span style="font-weight:700;color:#34A853">g</span><span style="font-weight:700;color:#4285F4">l</span><span style="font-weight:700;color:#EA4335">e</span> Pay</button>
@@ -826,24 +818,11 @@ function inject(){
    <div class="step-bar">
     <div class="step-dot active"></div><div class="step-line"></div>
     <div class="step-dot"></div><div class="step-line"></div>
-    <div class="step-dot"></div><div class="step-line"></div>
-    <div class="step-dot"></div><div class="step-line"></div>
     <div class="step-dot"></div>
    </div>
-   <!-- Step 0: Info -->
-   <div class="step-panel active" id="dv-step-0">
-    <p class="step-title">Your Information</p>
-    <div class="wb-row"><div class="wb-field"><label>First Name</label><input id="dv-fname" placeholder="Jane"></div><div class="wb-field"><label>Last Name</label><input id="dv-lname" placeholder="Smith"></div></div>
-    <div class="wb-field"><label>Email</label><input id="dv-email" type="email" placeholder="you@email.com"></div>
-    <div class="wb-field"><label>Phone</label><input id="dv-phone" type="tel" placeholder="(916) 555-0000"></div>
-    <div class="wb-field"><label>Street Address</label><input id="dv-addr" placeholder="123 Main St"></div>
-    <div class="wb-row"><div class="wb-field"><label>City</label><input id="dv-city" placeholder="Sacramento" value="Sacramento"></div><div class="wb-field"><label>State / ZIP</label><input id="dv-zip" placeholder="CA 95814"></div></div>
-    <div class="wb-row"><div class="wb-field"><label>Gate Code (optional)</label><input id="dv-gate" placeholder="#1234"></div><div class="wb-field"><label>Drop-off Preference</label><select id="dv-location"><option>Front Door</option><option>Side Gate</option><option>Garage</option><option>Back Door</option><option>Other</option></select></div></div>
-    <div class="wb-field"><label>Delivery Notes (optional)</label><textarea id="dv-notes" style="min-height:56px" placeholder="Any instructions for your driver…"></textarea></div>
-    <div class="step-nav"><button class="wb-btn" id="dv-next-0">Next: Choose Plan →</button></div>
-   </div>
-   <!-- Step 1: Choose Plan -->
-   <div class="step-panel" id="dv-step-1">
+   <!-- Step 1: Choose Your Water & Size -->
+   <div class="step-panel active" id="dv-step-1">
+    <div class="first-timer-banner" style="background:#E8F0FE;border-left:4px solid #0A47A1;border-radius:8px;padding:16px 20px;margin-bottom:24px;"><div style="font-weight:800;font-family:'Outfit',sans-serif;color:#0A47A1;font-size:15px;margin-bottom:4px;">First delivery? No problem.</div><div style="color:#1a3a6b;font-size:13px;line-height:1.55;">We provide all bottles for your first order. No bottle swap needed. First-time promotions and waived delivery fees apply to your first order only.</div></div>
     <p class="step-title">Choose Your Water &amp; Size</p>
     <div id="dv-plan-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px">
      ${Object.entries(PLANS).map(([name,p])=>`
@@ -852,7 +831,7 @@ function inject(){
        <div style="font-family:'Space Grotesk',sans-serif;color:#00D4FF;font-size:18px;margin:4px 0">$${p.price.toFixed(2)}<span style="font-size:11px;color:#8BB8D4">/bottle</span></div>
       </div>`).join('')}
     </div>
-    <div class="step-nav"><button class="wb-btn-ghost step-back" id="dv-back-1">← Back</button><button class="wb-btn" id="dv-next-1">Next: Schedule →</button></div>
+    <div class="step-nav"><button class="wb-btn" id="dv-next-1">Next: Schedule →</button></div>
    </div>
    <!-- Step 2: Schedule -->
    <div class="step-panel" id="dv-step-2">
@@ -875,12 +854,22 @@ function inject(){
     </div>
     <p style="font-size:12px;color:#8BB8D4;margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:.5px">First Delivery Date</p>
     <div id="dv-calendar"></div>
-    <div class="step-nav"><button class="wb-btn-ghost step-back" id="dv-back-2">← Back</button><button class="wb-btn" id="dv-next-2">Next: Payment →</button></div>
+    <div class="step-nav"><button class="wb-btn-ghost step-back" id="dv-back-2">← Back</button><button class="wb-btn" id="dv-next-2">Review Order →</button></div>
    </div>
-   <!-- Step 3: Payment -->
+   <!-- Step 3: Review and Place Order -->
    <div class="step-panel" id="dv-step-3">
-    <p class="step-title">Payment</p>
+    <p class="step-title">Review and Place Order</p>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:0 0 10px;font-weight:600">Your Details</p>
+    <div class="wb-row"><div class="wb-field"><label>First Name</label><input id="dv-fname" placeholder="Jane"></div><div class="wb-field"><label>Last Name</label><input id="dv-lname" placeholder="Smith"></div></div>
+    <div class="wb-field"><label>Email</label><input id="dv-email" type="email" placeholder="you@email.com"></div>
+    <div class="wb-field"><label>Phone</label><input id="dv-phone" type="tel" placeholder="(916) 555-0000"></div>
+    <div class="wb-field"><label>Street Address</label><input id="dv-addr" placeholder="123 Main St"></div>
+    <div class="wb-row"><div class="wb-field"><label>City</label><input id="dv-city" placeholder="Sacramento" value="Sacramento"></div><div class="wb-field"><label>State / ZIP</label><input id="dv-zip" placeholder="CA 95814"></div></div>
+    <div class="wb-row"><div class="wb-field"><label>Gate Code (optional)</label><input id="dv-gate" placeholder="#1234"></div><div class="wb-field"><label>Drop-off Preference</label><select id="dv-location"><option>Front Door</option><option>Side Gate</option><option>Garage</option><option>Back Door</option><option>Other</option></select></div></div>
+    <div class="wb-field"><label>Delivery Notes (optional)</label><textarea id="dv-notes" style="min-height:56px" placeholder="Any instructions for your driver…"></textarea></div>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:18px 0 10px;font-weight:600">Order Summary</p>
     <div id="dv-plan-summary" style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.18);border-radius:12px;padding:14px;margin-bottom:18px"></div>
+    <p style="font-size:12px;color:#8BB8D4;text-transform:uppercase;letter-spacing:.5px;margin:0 0 10px;font-weight:600">Payment</p>
     <div class="pay-opts">
      <button class="pay-apple" id="dv-apple-pay">🍎 Apple Pay</button>
      <button class="pay-google" id="dv-google-pay"><span style="font-weight:700;color:#4285F4">G</span><span style="font-weight:700;color:#EA4335">o</span><span style="font-weight:700;color:#FBBC05">o</span><span style="font-weight:700;color:#34A853">g</span><span style="font-weight:700;color:#4285F4">l</span><span style="font-weight:700;color:#EA4335">e</span> Pay</button>
@@ -1018,6 +1007,8 @@ function wireCartDrawer(){
     closeCartDrawer();
     if(!cart.length){ toast('Cart empty','Add some products first',''); return; }
     gotoStep('checkout-overlay',0);
+    buildCalendar('co-calendar',3,d=>{ coState.date=d; });
+    buildTimeWindows('co-time-wins',t=>{ coState.time=t; });
     if(user){
       const f=(id,v)=>{ const el=document.getElementById(id); if(el&&v) el.value=v; };
       const parts=(user.name||'').split(' ');
@@ -1095,26 +1086,27 @@ function wireCheckout(){
     if(coState.orderType==='one-time'&&!coState.bottleReturn){
       toast('Bottle return','Please select how you\'ll return empty jugs',''); return;
     }
-    // Step 1 → add-ons step → payment
-    gotoStep('checkout-overlay',2);
+    // Step 1 (Schedule) → Step 2 (Add-Ons)
+    gotoStep('checkout-overlay',1);
   });
-  document.getElementById('co-back-addons')?.addEventListener('click',()=>gotoStep('checkout-overlay',1));
-  document.getElementById('co-next-addons')?.addEventListener('click',()=>{ gotoStep('checkout-overlay',3); buildOrderSummary('co-order-summary'); });
+  document.getElementById('co-back-addons')?.addEventListener('click',()=>gotoStep('checkout-overlay',0));
+  document.getElementById('co-next-addons')?.addEventListener('click',()=>{ gotoStep('checkout-overlay',2); buildOrderSummary('co-order-summary'); });
   document.getElementById('co-back-1')?.addEventListener('click',()=>gotoStep('checkout-overlay',0));
-  document.getElementById('co-back-2')?.addEventListener('click',()=>gotoStep('checkout-overlay',2));
+  document.getElementById('co-back-2')?.addEventListener('click',()=>gotoStep('checkout-overlay',1));
   document.getElementById('co-place-order')?.addEventListener('click',()=>{
+    if(!(document.getElementById('co-fname')?.value)||!(document.getElementById('co-email')?.value)){ toast('Missing info','Please fill in name and email',''); return; }
     if(!(document.getElementById('co-card')?.value)||!(document.getElementById('co-cname')?.value)){ toast('Payment info','Enter card details',''); return; }
-    gotoStep('checkout-overlay',4);
+    gotoStep('checkout-overlay',3);
     const numEl=document.getElementById('co-order-num'); if(numEl) numEl.textContent=genId();
     cart=[]; coAddonQtys={}; saveCart(cart); updateBadge();
     toast('Order placed!','Check your email for confirmation','');
   });
-  document.getElementById('co-apple-pay')?.addEventListener('click',()=>showPaySim('apple',()=>{ gotoStep('checkout-overlay',4); const n=document.getElementById('co-order-num'); if(n) n.textContent=genId(); cart=[]; coAddonQtys={}; saveCart(cart); updateBadge(); toast('Order placed!','Apple Pay successful',''); }));
-  document.getElementById('co-google-pay')?.addEventListener('click',()=>showPaySim('google',()=>{ gotoStep('checkout-overlay',4); const n=document.getElementById('co-order-num'); if(n) n.textContent=genId(); cart=[]; coAddonQtys={}; saveCart(cart); updateBadge(); toast('Order placed!','Google Pay successful',''); }));
+  document.getElementById('co-apple-pay')?.addEventListener('click',()=>showPaySim('apple',()=>{ gotoStep('checkout-overlay',3); const n=document.getElementById('co-order-num'); if(n) n.textContent=genId(); cart=[]; coAddonQtys={}; saveCart(cart); updateBadge(); toast('Order placed!','Apple Pay successful',''); }));
+  document.getElementById('co-google-pay')?.addEventListener('click',()=>showPaySim('google',()=>{ gotoStep('checkout-overlay',3); const n=document.getElementById('co-order-num'); if(n) n.textContent=genId(); cart=[]; coAddonQtys={}; saveCart(cart); updateBadge(); toast('Order placed!','Google Pay successful',''); }));
   document.getElementById('co-done-btn')?.addEventListener('click',()=>closeOverlay('checkout-overlay'));
   const coCard=document.getElementById('co-card'); coCard?.addEventListener('input',()=>{ let v=coCard.value.replace(/\D/g,'').slice(0,16); coCard.value=v.replace(/(.{4})/g,'$1 ').trim(); });
   const coExp=document.getElementById('co-exp'); coExp?.addEventListener('input',()=>{ let v=coExp.value.replace(/\D/g,'').slice(0,4); if(v.length>2) v=v.slice(0,2)+'/'+v.slice(2); coExp.value=v; });
-  wireZipField('co-zip','co-zone-result','co-next-0');
+  wireZipField('co-zip','co-zone-result','co-place-order');
 }
 
 /* ── Wire Subscription ──────────────────────────────────────────── */
@@ -1128,34 +1120,37 @@ function wireSubscription(){
       if(ph){ const msgs={ro:'Reverse osmosis — ultra-pure, crisp taste.',alkaline:'Alkaline pH 8.5+ — smooth taste, fitness-ready.',hydrogen:'Hydrogen-infused — premium antioxidant hydration.'}; ph.textContent=msgs[subState.waterType]||''; }
     }
   });
-  document.getElementById('sub-next-0')?.addEventListener('click',()=>gotoStep('sub-overlay',1));
-  document.getElementById('sub-next-1')?.addEventListener('click',()=>{
-    if(!(document.getElementById('sub-fname')?.value)||!(document.getElementById('sub-email')?.value)){ toast('Missing info','Name and email required',''); return; }
-    gotoStep('sub-overlay',2); buildCalendar('sub-calendar',3,d=>{ subState.date=d; }); buildTimeWindows('sub-time-wins',t=>{ subState.time=t; });
+  // Step 1 (Water Type & Plan) → Step 2 (Size & Schedule)
+  document.getElementById('sub-next-0')?.addEventListener('click',()=>{
+    gotoStep('sub-overlay',1);
+    buildCalendar('sub-calendar',3,d=>{ subState.date=d; });
+    buildTimeWindows('sub-time-wins',t=>{ subState.time=t; });
   });
-  document.getElementById('sub-back-1')?.addEventListener('click',()=>gotoStep('sub-overlay',0));
+  // Step 2 (Size & Schedule) → Step 3 (Review and Place Order)
+  document.getElementById('sub-back-2')?.addEventListener('click',()=>gotoStep('sub-overlay',0));
   document.getElementById('sub-next-2')?.addEventListener('click',()=>{
     if(!subState.date){ toast('Pick a date','Select your first delivery date',''); return; }
     if(!subState.time){ toast('Pick a time','Select a time window',''); return; }
-    gotoStep('sub-overlay',3);
+    gotoStep('sub-overlay',2);
     const plan=PLANS[subState.plan]||{}; const price=plan.price||0;
     const zd=zoneFeeDisplay(currentZone); const total=price+zd.fee;
     const zoneTag=zd.tag?` <span style="font-size:10px;color:#8BB8D4">(${zd.tag})</span>`:'';
     const c=document.getElementById('sub-order-summary'); if(c) c.innerHTML=`<div class="ob-row"><span>${esc(subState.plan)}</span><span>$${price.toFixed(2)}/bottle</span></div><div class="ob-row"><span>Delivery${zoneTag}</span><span style="color:${zd.color}">${zd.text}</span></div><div class="ob-row grand"><span>Total</span><span>$${total.toFixed(2)}</span></div>`;
   });
-  document.getElementById('sub-back-2')?.addEventListener('click',()=>gotoStep('sub-overlay',1));
-  document.getElementById('sub-back-3')?.addEventListener('click',()=>gotoStep('sub-overlay',2));
-  const doSubConfirm=()=>{ gotoStep('sub-overlay',4); const n=document.getElementById('sub-order-num'); if(n) n.textContent=genId(); toast('Subscribed!','Welcome to Waterboy Delivery!',''); };
+  // Step 3 (Review and Place Order) → success
+  document.getElementById('sub-back-3')?.addEventListener('click',()=>gotoStep('sub-overlay',1));
+  const doSubConfirm=()=>{ gotoStep('sub-overlay',3); const n=document.getElementById('sub-order-num'); if(n) n.textContent=genId(); toast('Subscribed!','Welcome to Waterboy Delivery!',''); };
   document.getElementById('sub-subscribe-btn')?.addEventListener('click',()=>{
+    if(!(document.getElementById('sub-fname')?.value)||!(document.getElementById('sub-email')?.value)){ toast('Missing info','Name and email required',''); return; }
     if(!(document.getElementById('sub-card')?.value)||!(document.getElementById('sub-cname')?.value)){ toast('Payment info','Enter card details',''); return; }
     doSubConfirm();
   });
-  document.getElementById('sub-apple-pay')?.addEventListener('click',()=>showPaySim('apple',doSubConfirm));
-  document.getElementById('sub-google-pay')?.addEventListener('click',()=>showPaySim('google',doSubConfirm));
+  document.getElementById('sub-apple-pay')?.addEventListener('click',()=>{ if(!(document.getElementById('sub-fname')?.value)||!(document.getElementById('sub-email')?.value)){ toast('Missing info','Name and email required',''); return; } showPaySim('apple',doSubConfirm); });
+  document.getElementById('sub-google-pay')?.addEventListener('click',()=>{ if(!(document.getElementById('sub-fname')?.value)||!(document.getElementById('sub-email')?.value)){ toast('Missing info','Name and email required',''); return; } showPaySim('google',doSubConfirm); });
   document.getElementById('sub-done-btn')?.addEventListener('click',()=>closeOverlay('sub-overlay'));
   const subCard=document.getElementById('sub-card'); subCard?.addEventListener('input',()=>{ let v=subCard.value.replace(/\D/g,'').slice(0,16); subCard.value=v.replace(/(.{4})/g,'$1 ').trim(); });
   const subExp=document.getElementById('sub-exp'); subExp?.addEventListener('input',()=>{ let v=subExp.value.replace(/\D/g,'').slice(0,4); if(v.length>2) v=v.slice(0,2)+'/'+v.slice(2); subExp.value=v; });
-  wireZipField('sub-zip','sub-zone-result','sub-next-1');
+  wireZipField('sub-zip','sub-zone-result','sub-subscribe-btn');
 }
 
 /* ── Wire Delivery Modal ────────────────────────────────────────── */
@@ -1192,13 +1187,13 @@ function wireDeliveryModal(){
   document.getElementById('dv-back-1')?.addEventListener('click',()=>gotoStep('delivery-overlay',0));
   document.getElementById('dv-next-1')?.addEventListener('click',()=>{
     if(!dvState.plan){ toast('Choose a plan','Please select a delivery plan',''); return; }
-    gotoStep('delivery-overlay',2);
+    gotoStep('delivery-overlay',1);
     buildCalendar('dv-calendar',3,d=>{ dvState.date=d; });
   });
-  document.getElementById('dv-back-2')?.addEventListener('click',()=>gotoStep('delivery-overlay',1));
+  document.getElementById('dv-back-2')?.addEventListener('click',()=>gotoStep('delivery-overlay',0));
   document.getElementById('dv-next-2')?.addEventListener('click',()=>{
     if(!dvState.date){ toast('Pick a date','Select your first delivery date',''); return; }
-    gotoStep('delivery-overlay',3);
+    gotoStep('delivery-overlay',2);
     const plan=PLANS[dvState.plan]||{}; const price=plan.price||0;
     const zd=zoneFeeDisplay(currentZone); const total=price+zd.fee;
     const zoneTag=zd.tag?` <span style="font-size:10px">(${zd.tag})</span>`:'';
@@ -1206,9 +1201,9 @@ function wireDeliveryModal(){
     if(sumEl) sumEl.innerHTML=`<div style="font-weight:800;font-size:17px;color:#fff;font-family:'Outfit',sans-serif;margin-bottom:6px">${esc(dvState.plan)}</div><div style="color:#8BB8D4;font-size:13px;line-height:1.9">${(plan.jugs||0)} jugs/delivery &nbsp;·&nbsp; ${esc(dvState.freq)} &nbsp;·&nbsp; ${esc(dvState.day)} ${esc(dvState.window)}<br>First delivery: ${dvState.date?dvState.date.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'TBD'}</div><div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center"><span style="color:#8BB8D4;font-size:13px">Plan price</span><span style="color:#00D4FF;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700">$${price}/mo</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px"><span style="color:#8BB8D4;font-size:13px">Delivery${zoneTag}</span><span style="color:${zd.color};font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700">${zd.text}</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;border-top:1px solid rgba(0,212,255,.15);padding-top:8px"><span style="color:#fff;font-size:14px;font-weight:700">Total</span><span style="color:#fff;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:800">$${total.toFixed(2)}/mo</span></div>`;
     const priceBtn=document.getElementById('dv-price-btn'); if(priceBtn) priceBtn.textContent=total.toFixed(2);
   });
-  document.getElementById('dv-back-3')?.addEventListener('click',()=>gotoStep('delivery-overlay',2));
+  document.getElementById('dv-back-3')?.addEventListener('click',()=>gotoStep('delivery-overlay',1));
   const doDvConfirm=()=>{
-    gotoStep('delivery-overlay',4);
+    gotoStep('delivery-overlay',3);
     const plan=PLANS[dvState.plan]||{}; const price=plan.price||0;
     const cs=document.getElementById('dv-confirm-summary');
     if(cs) cs.innerHTML=`<strong style="color:#fff;font-size:15px">${esc(dvState.plan||'')} Plan</strong><br>`
@@ -1219,6 +1214,7 @@ function wireDeliveryModal(){
     toast('Delivery scheduled!','Welcome to Waterboy Delivery!','');
   };
   document.getElementById('dv-subscribe-btn')?.addEventListener('click',()=>{
+    if(!(document.getElementById('dv-fname')?.value)||!(document.getElementById('dv-email')?.value)){ toast('Missing info','Name and email required',''); return; }
     if(!document.getElementById('dv-terms')?.checked){ toast('Terms','Please accept the terms of service',''); return; }
     if(!(document.getElementById('dv-card')?.value)||!(document.getElementById('dv-cname')?.value)){ toast('Payment info','Enter card details',''); return; }
     doDvConfirm();
@@ -1228,7 +1224,7 @@ function wireDeliveryModal(){
   document.getElementById('dv-done-btn')?.addEventListener('click',()=>closeOverlay('delivery-overlay'));
   const dvCard=document.getElementById('dv-card'); dvCard?.addEventListener('input',()=>{ let v=dvCard.value.replace(/\D/g,'').slice(0,16); dvCard.value=v.replace(/(.{4})/g,'$1 ').trim(); });
   const dvExp=document.getElementById('dv-exp'); dvExp?.addEventListener('input',()=>{ let v=dvExp.value.replace(/\D/g,'').slice(0,4); if(v.length>2) v=v.slice(0,2)+'/'+v.slice(2); dvExp.value=v; });
-  wireZipField('dv-zip','dv-zone-result','dv-next-0');
+  wireZipField('dv-zip','dv-zone-result','dv-subscribe-btn');
 }
 
 /* ── Wire Pricing & Subscription Buttons ───────────────────────── */
@@ -1491,24 +1487,24 @@ function wireDispenserRental(){
 
 /* ── Inject Nav Buttons ─────────────────────────────────────────── */
 function injectNavButtons(){
-  const navLinks=document.querySelector('.nav-links, nav ul');
+  const navRight=document.querySelector('.nav-right, .hn-nav-right');
+  const navLinks=navRight||document.querySelector('.nav-links, nav ul');
   if(!navLinks) return;
 
   // Cart icon
   if(!document.querySelector('.nav-cart-btn')){
-    const li=document.createElement('li');
-    li.style.cssText='list-style:none;display:flex;align-items:center';
     const btn=document.createElement('button');
     btn.className='nav-cart-btn';
     btn.setAttribute('aria-label','Shopping cart');
-    btn.style.cssText='background:none;border:none;cursor:pointer;position:relative;font-size:18px;padding:6px 8px;color:#8BB8D4;transition:color .2s;line-height:1';
+    btn.style.cssText='background:none;border:none;cursor:pointer;position:relative;font-size:18px;padding:6px 8px;color:inherit;transition:color .2s;line-height:1;min-width:40px;min-height:40px;overflow:visible;display:flex;align-items:center;justify-content:center';
     btn.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/><circle cx="10" cy="20" r="1"/><circle cx="20" cy="20" r="1"/></svg><span class="cart-badge" style="display:none;position:absolute;top:-4px;right:-4px;background:#00D4FF;color:#070F18;font-size:10px;font-weight:800;min-width:17px;height:17px;border-radius:50%;display:none;align-items:center;justify-content:center;font-family:\'Space Mono\',monospace;padding:0 3px">0</span>';
     btn.addEventListener('click',openCartDrawer);
-    li.appendChild(btn); navLinks.appendChild(li);
+    if(navRight){ navRight.insertBefore(btn, navRight.firstChild); }
+    else{ const li=document.createElement('li'); li.style.cssText='list-style:none;display:flex;align-items:center'; li.appendChild(btn); navLinks.appendChild(li); }
   }
 
-  // Sign In / User
-  if(!document.querySelector('.nav-user-btn')){
+  // Sign In / User (legacy nav only — modern navbars use their own static Sign In)
+  if(!navRight && !document.querySelector('.nav-user-btn')){
     const li=document.createElement('li');
     li.style.cssText='list-style:none;position:relative';
     li.innerHTML=`<div class="nav-user-wrap" style="position:relative;display:inline-block">

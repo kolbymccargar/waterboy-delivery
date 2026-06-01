@@ -28,7 +28,9 @@
       "Bash(Select-Object -Last 40)",
       "PowerShell(& \"C:\\\\Users\\\\silly\\\\Desktop\\\\waterboy-delivery\\\\_batch_update.ps1\")",
       "Bash(grep -v \"class\\\\|CSS\\\\|--\\\\|^\\\\s*$\")",
-      "PowerShell(Start-Process \"msedge\" \"C:\\\\Users\\\\silly\\\\Desktop\\\\waterboy-delivery\\\\index.html\")"
+      "PowerShell(Start-Process \"msedge\" \"C:\\\\Users\\\\silly\\\\Desktop\\\\waterboy-delivery\\\\index.html\")",
+      "Bash(grep -iE \"\\\\.png$|\\\\.PNG$\")",
+      "Bash(node --check shop.js)"
     ]
   }
 }
