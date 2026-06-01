@@ -29,8 +29,19 @@
       "PowerShell(& \"C:\\\\Users\\\\silly\\\\Desktop\\\\waterboy-delivery\\\\_batch_update.ps1\")",
       "Bash(grep -v \"class\\\\|CSS\\\\|--\\\\|^\\\\s*$\")",
       "PowerShell(Start-Process \"msedge\" \"C:\\\\Users\\\\silly\\\\Desktop\\\\waterboy-delivery\\\\index.html\")",
-      "Bash(grep -iE \"\\\\.png$|\\\\.PNG$\")",
-      "Bash(node --check shop.js)"
+      "PowerShell(cd \"C:\\\\Users\\\\silly\\\\Desktop\\\\waterboy-delivery\"; Get-ChildItem -Recurse -File | Where-Object {$_.Extension -in @\\('.html', '.css', '.js'\\)} | Select-Object FullName | Sort-Object FullName)",
+      "Bash(grep -iE \"\\\\.\\(png|jpg|jpeg|svg|webp\\)$\")",
+      "Bash(grep -Pn \"\\\\x{2014}|&mdash;\" index.html about.html faq.html)",
+      "Bash(grep -Pn \"[\\\\x{1F300}-\\\\x{1F9FF}]\" index.html about.html faq.html)",
+      "Bash(grep -n \"@media\\\\|^    }$\")",
+      "Bash(git rebase *)",
+      "Bash(echo \"=== rebase abort exit: $? ===\")",
+      "Bash(git stash *)",
+      "Bash(echo \"=== stash pop exit: $? ===\")",
+      "Bash(echo \"=== exit: $? ===\")",
+      "Bash(git rev-list *)",
+      "Bash(git config *)",
+      "Bash(git ls-tree *)"
     ]
   }
 }
