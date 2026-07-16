@@ -1,4 +1,4 @@
-﻿<system-reminder>[Truncated: PARTIAL view - showing lines 1-1004 of 1224 total (25895 tokens, cap 25000). Call Read with offset=1005 limit=1004 for the next page, or Grep to find a specific section. Do NOT answer from this page alone if the answer may be further in the file.]</system-reminder>
+<system-reminder>[Truncated: PARTIAL view - showing lines 1-1004 of 1224 total (25895 tokens, cap 25000). Call Read with offset=1005 limit=1004 for the next page, or Grep to find a specific section. Do NOT answer from this page alone if the answer may be further in the file.]</system-reminder>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -611,8 +611,8 @@
       <div class="footer-col"><h4>Service Area</h4><div class="footer-links"><a href="delivery-areas.html">Elk Grove, CA</a><a href="delivery-areas.html">Sacramento County</a><a href="delivery-areas.html">Zones 1 through 3</a><a href="delivery-areas.html">See Full Map</a></div></div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <div class="footer-contact-item"><a href="tel:+19166193218">(916) 619-3218</a></div>
-        <div class="footer-contact-item"><a href="mailto:hello@waterboydelivery.com">hello@waterboydelivery.com</a></div>
+        <div class="footer-contact-item"><a href="tel:+19167533866">(916) 753-3866</a></div>
+        <div class="footer-contact-item"><a href="mailto:info@elkgrovewaterboy.com">info@elkgrovewaterboy.com</a></div>
         <div class="footer-contact-item"><a href="https://maps.google.com/?q=7119+Elk+Grove+Blvd,+Elk+Grove,+CA+95758" target="_blank" rel="noopener">7119 Elk Grove Blvd, Elk Grove CA 95758</a></div>
         <a href="order.html" class="footer-order-btn">ORDER NOW</a>
       </div>
@@ -682,21 +682,24 @@
 const STORE_LAT=38.4088,STORE_LNG=-121.4208;
 const ZIP_COORDS={'95758':{lat:38.4088,lng:-121.4208},'95757':{lat:38.3930,lng:-121.4490},'95624':{lat:38.4380,lng:-121.3850},'95759':{lat:38.3780,lng:-121.4300},'95830':{lat:38.4750,lng:-121.4350},'95829':{lat:38.4700,lng:-121.3900},'95828':{lat:38.4900,lng:-121.4100},'95823':{lat:38.5100,lng:-121.4500},'95822':{lat:38.5200,lng:-121.4900},'95832':{lat:38.4600,lng:-121.4800},'95630':{lat:38.5800,lng:-121.2700},'95670':{lat:38.5900,lng:-121.2800},'95826':{lat:38.5400,lng:-121.3800},'95831':{lat:38.4900,lng:-121.5200},'95655':{lat:38.3500,lng:-121.5000},'95693':{lat:38.3200,lng:-121.3500},'95820':{lat:38.5300,lng:-121.4600},'95825':{lat:38.5700,lng:-121.4000}};
 function haversine(a,b,c,d){var R=3959,dLat=(c-a)*Math.PI/180,dLng=(d-b)*Math.PI/180,x=Math.sin(dLat/2)**2+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dLng/2)**2;return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x));}
-function getZoneForZip(z){var c=ZIP_COORDS[z];if(!c)return{zone:0,fee:0,outside:false,unknown:true};var d=haversine(STORE_LAT,STORE_LNG,c.lat,c.lng);if(d<=3)return{zone:1,fee:2.99,dist:d,outside:false,unknown:false};if(d<=6)return{zone:2,fee:5.99,dist:d,outside:false,unknown:false};if(d<=9)return{zone:3,fee:8.99,dist:d,outside:false,unknown:false};return{zone:4,fee:0,dist:d,outside:true,unknown:false};}
+function getZoneForZip(z){var c=ZIP_COORDS[z];if(!c)return{zone:0,fee:0,outside:false,unknown:true};var d=haversine(STORE_LAT,STORE_LNG,c.lat,c.lng);if(d<=1)return{zone:1,fee:2.99,dist:d,outside:false,unknown:false};if(d<=2)return{zone:1,fee:3.99,dist:d,outside:false,unknown:false};if(d<=3)return{zone:2,fee:5.99,dist:d,outside:false,unknown:false};if(d<=4)return{zone:3,fee:6.99,dist:d,outside:false,unknown:false};if(d<=5)return{zone:3,fee:7.99,dist:d,outside:false,unknown:false};if(d<=6)return{zone:3,fee:8.99,dist:d,outside:false,unknown:false};if(d<=7)return{zone:3,fee:9.99,dist:d,outside:false,unknown:false};if(d<=8)return{zone:3,fee:10.99,dist:d,outside:false,unknown:false};if(d<=9)return{zone:3,fee:11.99,dist:d,outside:false,unknown:false};return{zone:4,fee:0,dist:d,outside:true,unknown:false};}
 function genOrderId(){return'WB-'+Math.random().toString(36).slice(2,8).toUpperCase();}
 
 /* ── Prices & Bundles ────────────────────────────────────────── */
 const PRICES={purified:6.99,alkaline:7.99};
 const BUNDLES_REG=[
-  {id:'solo',    name:'Solo',       price:21, bottles:2,  badge:'STARTER',      pop:false,savings:'Saves $26 vs Water.com'},
-  {id:'family',  name:'Family',     price:42, bottles:4,  badge:'MOST POPULAR', pop:true, savings:'Saves $7'},
-  {id:'household',name:'Household', price:57, bottles:6,  badge:'BEST VALUE',   pop:false,savings:'Saves $9'},
-  {id:'office',  name:'Office',     price:72, bottles:8,  badge:'OFFICE',       pop:false,savings:'Saves $10+'},
-  {id:'max',     name:'Max Bundle', price:95, bottles:12, badge:'PREMIUM',      pop:false,savings:'Saves $22'},
+  {id:'solo',    name:'Solo',       price:24.99,  bottles:2,  badge:'STARTER',      pop:false,savings:''},
+  {id:'family',  name:'Family',     price:45.99,  bottles:4,  badge:'MOST POPULAR', pop:true, savings:''},
+  {id:'household',name:'Household', price:69.99,  bottles:6,  badge:'BEST VALUE',   pop:false,savings:''},
+  {id:'office',  name:'Office',     price:94.99,  bottles:8,  badge:'OFFICE',       pop:false,savings:''},
+  {id:'max',     name:'Max Bundle', price:140.99, bottles:12, badge:'PREMIUM',      pop:false,savings:''},
 ];
 const BUNDLES_ALK=[
-  {id:'alk-solo',  name:'Alkaline Solo',   price:25,Bottles:2, badge:'STARTER',      pop:false,savings:''},
-  {id:'alk-family',name:'Alkaline Family', price:45,Bottles:4, badge:'MOST POPULAR', pop:true, savings:''},
+  {id:'alk-solo',  name:'Alkaline Solo',   price:27.99,  bottles:2,  badge:'STARTER',      pop:false,savings:''},
+  {id:'alk-family',name:'Alkaline Family', price:54.99,  bottles:4,  badge:'MOST POPULAR', pop:true, savings:''},
+{id:'alk-household', name:'Alkaline Household', price:74.99,  bottles:6,  badge:'BEST VALUE',   pop:false,savings:''},
+{id:'alk-office',    name:'Alkaline Office',    price:99.99,  bottles:8,  badge:'OFFICE',       pop:false,savings:''},
+{id:'alk-max',       name:'Alkaline Max',       price:149.99, bottles:12, badge:'PREMIUM',      pop:false,savings:''},
   {id:'alk-max',   name:'Alkaline Max',    price:60,Bottles:12,badge:'PREMIUM',      pop:false,savings:''},
 ];
 
@@ -734,6 +737,7 @@ function updateProgress(n){
 
 /* ── Step 1 ──────────────────────────────────────────────────── */
 function selectWaterType(type){
+setTimeout(function(){var b=document.getElementById('btn-next-wt');if(b&&document.getElementById('btn-next-wt').offsetParent!==null)b.click();},400);
   state.waterType=type;
   state.bundleId=null;
   saveDraft();
@@ -919,7 +923,7 @@ document.addEventListener('DOMContentLoaded',function(){
     state.zip=z;state.zone=zr;saveDraft();
     if(res){
       if(zr.unknown)res.innerHTML='<span style="color:#8BB8D4">Delivery fee will be confirmed</span>';
-      else if(zr.outside)res.innerHTML='<span class="zout">Beyond 9 miles - Custom Quote. We may still be able to help. Call <a href="tel:+19166193218" style="color:#FF6B6B">(916) 619-3218</a>.</span>';
+      else if(zr.outside)res.innerHTML='<span class="zout">Beyond 9 miles - Custom Quote. We may still be able to help. Call <a href="tel:+19167533866" style="color:#FF6B6B">(916) 753-3866</a>.</span>';
       else if(zr.zone===1)res.innerHTML='<span class="z1">Zone 1 - $2.99 delivery fee</span>';
       else if(zr.zone===2)res.innerHTML='<span class="z2">Zone 2 - $5.99 delivery fee</span>';
       else res.innerHTML='<span class="z3">Zone 3 - $8.99 delivery fee</span>';
@@ -988,7 +992,7 @@ function validateStep3(){
   if(!state.delOpt){alert('Please select a delivery option (ASAP or scheduled).');ok=false;}
   else if(state.delOpt==='scheduled'&&!state.calDate){alert('Please select a delivery date on the calendar.');ok=false;}
   if(!state.timePref){alert('Please select a delivery time window (Morning, Afternoon, or Evening).');ok=false;}
-  if(state.zone.outside){alert('Your ZIP code is outside our delivery area. Please call (916) 619-3218 for options.');ok=false;}
+  if(state.zone.outside){alert('Your ZIP code is outside our delivery area. Please call (916) 753-3866 for options.');ok=false;}
   return ok;
 }
 
