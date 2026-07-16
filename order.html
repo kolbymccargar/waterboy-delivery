@@ -1086,7 +1086,7 @@ function initStripe(){
     return;
   }
   if(stripe)return;
-  stripe=Stripe('YOUR_PUBLISHABLE_KEY_HERE');
+  stripe=Stripe('pk_live_51Tqi6kLXa6QDwCZAvbMmFTcFOaLMaNQOApvlYV2GBUnH90DXSJySe23wyFW4wogkwhyswHdHnnyg5mXIvC8yY4Wm00LxlXeDfz');
   var elements=stripe.elements({fonts:[{cssSrc:'https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap'}]});
   cardElement=elements.create('card',{style:{base:{color:'#F0F7FF',fontFamily:'Inter, sans-serif',fontSize:'16px','::placeholder':{color:'#B8E6FF'},iconColor:'#00D4FF'},invalid:{color:'#FF6B6B',iconColor:'#FF6B6B'}}});
   cardElement.mount('#stripe-card-element');
@@ -1105,9 +1105,13 @@ async function handlePayment(){
     return;
   }
   try{
-    var result=await stripe.createPaymentMethod({type:'card',card:cardElement,billing_details:{name:name.trim(),email:state.email,phone:state.phone}});
+    var total=getBasePrice()+(state.zone&&state.zone.fee?state.zone.fee:0);
+    var piResp=await fetch('/.netlify/functions/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:total,customerEmail:state.email,customerName:name.trim()})});
+    var piData=await piResp.json();
+    if(piData.error){if(errEl)errEl.textContent=piData.error;btn.classList.remove('loading');btn.disabled=false;return;}
+    var result=await stripe.confirmCardPayment(piData.clientSecret,{payment_method:{card:cardElement,billing_details:{name:name.trim(),email:state.email,phone:state.phone}}});
     if(result.error){if(errEl)errEl.textContent=result.error.message;btn.classList.remove('loading');btn.disabled=false;return;}
-    setTimeout(function(){btn.classList.remove('loading');btn.disabled=false;closeCheckout();showSuccess(genOrderId());},800);
+    btn.classList.remove('loading');btn.disabled=false;closeCheckout();showSuccess(genOrderId());
   }catch(e){if(errEl)errEl.textContent='Payment error. Please try again.';btn.classList.remove('loading');btn.disabled=false;}
 }
 
