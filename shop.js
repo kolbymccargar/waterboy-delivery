@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    SHOP.JS — Cart · Checkout · Auth · Modals · Subscription
    Waterboy Delivery  (v2 — all buttons fixed)
    ================================================================ */
@@ -6,13 +6,13 @@
 /* ── Water Type Pricing — Single Source of Truth ───────────────── */
 const WATERBOY_PRICING = {
   bundles: {
-    'Solo':       { bottles:2,  ro:21,  alkaline:25,  hydrogen:30  },
-    'Family':     { bottles:4,  ro:42,  alkaline:47,  hydrogen:55  },
-    'Household':  { bottles:6,  ro:57,  alkaline:63,  hydrogen:72  },
-    'Office':     { bottles:8,  ro:72,  alkaline:79,  hydrogen:90  },
-    'Max Bundle': { bottles:12, ro:95,  alkaline:103, hydrogen:118 },
+    'Solo':       { bottles:2,  ro:24.99,  alkaline:27.99,  hydrogen:0 },
+    'Family':     { bottles:4,  ro:45.99,  alkaline:54.99,  hydrogen:0 },
+    'Household':  { bottles:6,  ro:69.99,  alkaline:74.99,  hydrogen:0 },
+    'Office':     { bottles:8,  ro:94.99,  alkaline:99.99,  hydrogen:0 },
+    'Max Bundle': { bottles:12, ro:140.99, alkaline:149.99, hydrogen:0 },
   },
-  perBottle: { ro:7.50, alkaline:9.00, hydrogen:11.00 },
+  perBottle: { ro:11.99, alkaline:13.99, hydrogen:10.99 },
 };
 
 /* ── Global Water State ────────────────────────────────────────── */
@@ -68,14 +68,16 @@ function syncWaterPillsUI(){
 
 /* ── Constants & Plans ─────────────────────────────────────────── */
 const PLANS = {
-  'Solo':           { bottles:2,  price:21, alkaline:false },
-  'Family':         { bottles:4,  price:42, alkaline:false },
-  'Household':      { bottles:6,  price:57, alkaline:false },
-  'Office':         { bottles:8,  price:72, alkaline:false },
-  'Max Bundle':     { bottles:12, price:95, alkaline:false },
-  'Alkaline Solo':  { bottles:2,  price:25, alkaline:true  },
-  'Alkaline Family':{ bottles:4,  price:45, alkaline:true  },
-  'Alkaline Max':   { bottles:12, price:60, alkaline:true  },
+  'Solo':               { bottles:2,  price:24.99,  alkaline:false },
+  'Family':             { bottles:4,  price:45.99,  alkaline:false },
+  'Household':          { bottles:6,  price:69.99,  alkaline:false },
+  'Office':             { bottles:8,  price:94.99,  alkaline:false },
+  'Max Bundle':         { bottles:12, price:140.99, alkaline:false },
+  'Alkaline Solo':      { bottles:2,  price:27.99,  alkaline:true  },
+  'Alkaline Family':    { bottles:4,  price:54.99,  alkaline:true  },
+  'Alkaline Household': { bottles:6,  price:74.99,  alkaline:true  },
+  'Alkaline Office':    { bottles:8,  price:99.99,  alkaline:true  },
+  'Alkaline Max':       { bottles:12, price:149.99, alkaline:true  },
 };
 
 /* Checkout add-on data */
@@ -122,18 +124,24 @@ function getZoneForZip(zip){
   const c=ZIP_COORDS[zip];
   if(!c) return {zone:0,fee:0,outside:false,unknown:true};
   const d=haversine(STORE_LAT,STORE_LNG,c.lat,c.lng);
-  if(d<=3)  return {zone:1,fee:2.99,dist:d,outside:false,unknown:false};
-  if(d<=6)  return {zone:2,fee:5.99,dist:d,outside:false,unknown:false};
-  if(d<=9)  return {zone:3,fee:8.99,dist:d,outside:false,unknown:false};
+  if(d<=1)  return {zone:1,fee:2.99, dist:d,outside:false,unknown:false};
+  if(d<=2)  return {zone:1,fee:3.99, dist:d,outside:false,unknown:false};
+  if(d<=3)  return {zone:2,fee:5.99, dist:d,outside:false,unknown:false};
+  if(d<=4)  return {zone:3,fee:6.99, dist:d,outside:false,unknown:false};
+  if(d<=5)  return {zone:3,fee:7.99, dist:d,outside:false,unknown:false};
+  if(d<=6)  return {zone:3,fee:8.99, dist:d,outside:false,unknown:false};
+  if(d<=7)  return {zone:3,fee:9.99, dist:d,outside:false,unknown:false};
+  if(d<=8)  return {zone:3,fee:10.99,dist:d,outside:false,unknown:false};
+  if(d<=9)  return {zone:3,fee:11.99,dist:d,outside:false,unknown:false};
   return {zone:4,fee:0,dist:d,outside:true,unknown:false};
 }
 
 function zoneFeeDisplay(zr){
   if(zr.unknown) return {text:'TBD',color:'#8BB8D4',tag:'',fee:0};
   if(zr.outside) return {text:'Contact us',color:'#ff6b6b',tag:'',fee:0};
-  if(zr.zone===1) return {text:'$2.99',color:'#C5DFF0',tag:'Zone 1',fee:2.99};
-  if(zr.zone===2) return {text:'$5.99',color:'#C5DFF0',tag:'Zone 2',fee:5.99};
-  if(zr.zone===3) return {text:'$8.99',color:'#FFD700',tag:'Zone 3',fee:8.99};
+  if(zr.zone===1) return {text:'$'+zr.fee.toFixed(2),color:'#C5DFF0',tag:'Zone 1',fee:zr.fee};
+  if(zr.zone===2) return {text:'$'+zr.fee.toFixed(2),color:'#C5DFF0',tag:'Zone 2',fee:zr.fee};
+  if(zr.zone===3) return {text:'$'+zr.fee.toFixed(2),color:'#FFD700',tag:'Zone 3',fee:zr.fee};
   return {text:'TBD',color:'#8BB8D4',tag:'',fee:0};
 }
 
@@ -144,7 +152,7 @@ function renderZoneResult(zr,resEl,nextBtn){
     resEl.innerHTML='<div class="zone-inline zone-unk">Delivery fee will be confirmed after order is placed</div>';
     if(nextBtn) nextBtn.disabled=false;
   } else if(zr.outside){
-    resEl.innerHTML='<div class="zone-inline zone-out">Beyond 9 miles - Custom Quote. We may still be able to help. Call <a href="tel:+19166193218">(916) 619-3218</a></div>';
+    resEl.innerHTML='<div class="zone-inline zone-out">Beyond 9 miles - Custom Quote. We may still be able to help. Call <a href="tel:+19167533866">(916) 753-3866</a></div>';
     if(nextBtn) nextBtn.disabled=true;
   } else {
     const msgs={
@@ -175,8 +183,8 @@ function wireZipField(inputId,resultId,nextBtnId){
   inp.addEventListener('input',()=>{ if((inp.value||'').replace(/\D/g,'').length>=5) run(); });
 }
 
-const PHONE      = '(916) 619-3218';
-const PHONE_HREF = 'tel:+19166193218';
+const PHONE      = '(916) 753-3866';
+const PHONE_HREF = 'tel:+19167533866';
 const DEMO_EMAIL = 'demo@waterboy.com';
 const DEMO_PASS  = 'water2026';
 
